@@ -74,10 +74,10 @@ const TABLE_ROWS = [
  
 export function Cart() {
   return (
-    <Card className="h-full w-full rounded-md border border-blue-gray-200 ml-4 mr-4 mb-4">
+    <Card className="rounded-md border border-blue-gray-200 ml-4 mr-4 mb-4 border-2">
       <CardHeader floated={false} shadow={false} className="rounded-md">
-        <div className="mb-8 items-center">
-        </div>
+        {/* <div className="mb-8 items-center">
+        </div> */}
         <div className=" flex-col items-center md:flex-row">
           <Tabs value="all" className="w-full md:w-max">
             <TabsHeader>
@@ -91,7 +91,7 @@ export function Cart() {
         </div>
       </CardHeader>
       <CardBody className="overflow-scroll px-0 rounded-md">
-        <table className="mt-4 w-full min-w-max table-auto text-left">
+        <table className="mt-4  min-w-max table-auto text-left">
           <thead>
             <tr>
               {TABLE_HEAD.map((head) => (
@@ -115,7 +115,7 @@ export function Cart() {
               ({ name, price, quentity, total, edite, date }, index) => {
                 const isLast = index === TABLE_ROWS.length - 1;
                 const classes = isLast
-                  ? "p-4"
+                  ? "p-2"
                   : "p-4 border-b border-blue-gray-50";
  
                 return (

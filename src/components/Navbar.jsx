@@ -1,11 +1,12 @@
 import { Fragment } from 'react'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
+import { Link } from 'react-router-dom'
 
 const navigation = [
-  { name: 'HOME', href:'#',current: true },
+  { name: 'HOME', href:'/',current: true },
   { name: 'CART', href: '#', current: false },
-  { name: 'HISTORY', href: '#', current: false },
+  { name: 'HISTORY', href: <Link to={'/'}/>, current: false },
   { name: 'SUPPORT', href: '#', current: false },
 ]
 
