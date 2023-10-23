@@ -3,6 +3,7 @@ import Home from './components/Home'
 import Navbar from './components/Navbar'
 import { Cart } from './components/Cart'
 import History from './components/History'
+import UserProfile from './components/UserProfile'
 
 function App() {
   
@@ -11,8 +12,8 @@ function App() {
       <Navbar/>
       <Home/>
       <Cart/>
-
       <History/>
+      <UserProfile/>
       {/* <Routes>
         <Route path='/' element={<Home/>}/>
         <Route path='/Navbar' element={<Navbar/>}/>

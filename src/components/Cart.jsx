@@ -62,18 +62,12 @@ const TABLE_ROWS = [
     edite: true,
     date: "24/12/08",
   },
-  {
-    name: "Richard Gran",
-    price: "richard@creative-tim.com",
-    quentity: "Manager",
-    total: "Executive",
-    edite: false,
-    date: "04/10/21",
-  },
 ];
  
 export function Cart() {
   return (
+    <div className="flex items-center justify-center">
+
     <Card className="rounded-md border border-blue-gray-200 ml-4 mr-4 mb-4 border-2">
       <CardHeader floated={false} shadow={false} className="rounded-md">
         {/* <div className="mb-8 items-center">
@@ -193,5 +187,6 @@ export function Cart() {
         </table>
       </CardBody>
     </Card>
+    </div>
   );
 }
