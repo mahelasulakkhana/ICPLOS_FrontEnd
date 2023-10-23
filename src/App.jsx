@@ -1,4 +1,4 @@
-import { Route, Routes } from 'react-router-dom'
+import { Route, Routes, Router } from 'react-router-dom'
 import Home from './components/Home'
 import Navbar from './components/Navbar'
 import { Cart } from './components/Cart'
@@ -8,17 +8,25 @@ import UserProfile from './components/UserProfile'
 function App() {
   
   return (
+      // <Router>
+      //   <Routes>
+      //     <Route path='/Navbar' element={<Navbar/>}>
+      //       <Route path='/' element={<Home/>}/>
+      //     </Route>
+      //     <Route path="Layout" element={<Layout/>}>
+      //       <Route index element={<Dashboard/>}/>
+      //       <Route path="Product" element={<Products/>}/>
+      //     </Route> 
+      //     <Route path="login" element={<div>this is login page</div>}/> 
+      //   </Routes>
+      // </Router>
     <div>
-      <Navbar/>
+       <Navbar/>
       <Home/>
       <Cart/>
       <History/>
       <UserProfile/>
-      {/* <Routes>
-        <Route path='/' element={<Home/>}/>
-        <Route path='/Navbar' element={<Navbar/>}/>
-      </Routes> */}
-    </div>
+    </div>     
   )
 }
 
