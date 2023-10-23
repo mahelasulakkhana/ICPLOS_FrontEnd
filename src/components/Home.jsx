@@ -37,7 +37,7 @@ const products = [
   export default function Home() {
     return (
       <div className="bg-white">
-        <div className="text-4xl p-4">
+        <div className="text-4xl p-4 text-center">
             <span className="text-green-500">ICP</span>
             <span className="text-black ml-5">Lunch Ordering System</span>
         </div>
