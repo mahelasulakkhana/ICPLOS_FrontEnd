@@ -6,9 +6,9 @@ import { Link } from 'react-router-dom'
 
 const navigation = [
   { name: 'HOME', href:'/',current: true },
-  { name: 'CART', href: '#', current: false },
-  { name: 'HISTORY', href: <Link to={'./components/History'}/>, current: false },
-  { name: 'SUPPORT', href: '#', current: false },
+  { name: 'CART', href: 'cart', current: true },
+  { name: 'HISTORY', href: 'history', current: false },
+  { name: 'SUPPORT', href: '', current: false },
 ]
 
 function classNames(...classes) {
@@ -96,7 +96,7 @@ export default function Navbar() {
                       <Menu.Item>
                         {({ active }) => (
                           <a
-                            href="#"
+                            href="userprofile"
                             className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
                           >
                             Your Profile

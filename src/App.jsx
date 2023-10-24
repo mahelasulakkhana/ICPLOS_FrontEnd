@@ -1,37 +1,39 @@
-import { BrowserRouter as Route, Routes, Router } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Home from './components/Home'
 import Navbar from './components/Navbar'
 import { Cart } from './components/Cart'
 import History from './components/History'
 import UserProfile from './components/UserProfile'
 import Sidebar from './DashBoard/Shared/Sidebar'
+import { Header } from './DashBoard/Shared/Header';
+import Login from './components/Login';
+import Addproduct from './DashBoard/Addproduct';
+
 
 function App() {
   
   return (
-    // <div>
-    //    <Router>
-    //      <Navbar/>
-    //      <Routes>
-          
-    //         <Route exact path='/' element={<Home/>}/>
-           
-    //        {/* <Route path="Layout" element={<Layout/>}>
-    //          <Route index element={<Dashboard/>}/>
-    //          <Route path="Product" element={<Products/>}/>
-    //        </Route> 
-    //        <Route path="login" element={<div>this is login page</div>}/>  */}
-    //      </Routes>
-    //    </Router>
-    //   </div>
-      <div>
+    
+       <Router>
+        <>
+        <Routes>
+          <Route>
+            <Route exact path='sidebar' element={<Sidebar/>}/>
+            <Route path="login" element={<div>this is login page</div>}/> 
+            <Route exact path='header' element={<Header/>}/>
+            <Route exact path='addproduct' element={<Addproduct/>}/>
+          </Route>
+        </Routes>
         <Navbar/>
-        <Home/>
-        <Cart/>
-        <History/>
-        <UserProfile/>
-        {/* <Sidebar/> */}
-      </div>
+        <Routes>
+                <Route exact path='/' element={<Home/>}/>
+                <Route exact path='cart' element={<Cart/>}/>
+                <Route exact path='history' element={<History/>}/>
+                <Route exact path='userprofile' element={<UserProfile/>}/>  
+                <Route exact path='login' element={<Login/>}/> 
+        </Routes>
+        </>
+       </Router>
         
   )
 }
