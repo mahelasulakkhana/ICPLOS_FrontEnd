@@ -8,6 +8,7 @@ import Sidebar from './DashBoard/Shared/Sidebar'
 import { Header } from './DashBoard/Shared/Header';
 import Login from './components/Login';
 import Addproduct from './DashBoard/Addproduct';
+// import Addproduct from './DashBoard/Addproduct';
 
 
 function App() {
@@ -21,7 +22,7 @@ function App() {
             <Route exact path='sidebar' element={<Sidebar/>}/>
             <Route path="login" element={<div>this is login page</div>}/> 
             <Route exact path='header' element={<Header/>}/>
-            <Route exact path='addproduct' element={<Addproduct/>}/>
+            
           </Route>
         </Routes>
         <Navbar/>
@@ -31,6 +32,8 @@ function App() {
                 <Route exact path='history' element={<History/>}/>
                 <Route exact path='userprofile' element={<UserProfile/>}/>  
                 <Route exact path='login' element={<Login/>}/> 
+                <Route exact path='addproduct' element={<Addproduct/>}/> 
+                
         </Routes>
         </>
        </Router>
