@@ -13,9 +13,6 @@ import Dashboard from './DashBoard/Dashboard';
 
 
 function App() {
-
-  
-  
   return (
     
        <Router>

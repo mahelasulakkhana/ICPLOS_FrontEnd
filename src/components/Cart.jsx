@@ -2,13 +2,9 @@ import React from "react";
 import { PencilIcon, UserPlusIcon } from "@heroicons/react/24/solid";
 import {
   Card,
-  CardHeader,
   Typography,
   CardBody,
   Chip,
-  Tabs,
-  TabsHeader,
-  Tab,
   IconButton,
   Tooltip,
 } from "@material-tailwind/react";
@@ -69,25 +65,11 @@ const TABLE_ROWS = [
  
 export function Cart() {
   return (
-    <div className="flex items-center justify-center">
+    <div className="bg-gray">
+    <div className="flex items-center justify-center mt-10 ">
 
-    <Card className="rounded-md border border-blue-gray-200 ml-4 mr-4 mb-4 border-2">
-      <CardHeader floated={false} shadow={false} className="rounded-md">
-        {/* <div className="mb-8 items-center">
-        </div> */}
-        <div className=" flex-col items-center md:flex-row">
-          <Tabs value="all" className="w-full md:w-max">
-            <TabsHeader>
-              {TABS.map(({ label, value }) => (
-                <Tab key={value} value={value}>
-                  &nbsp;&nbsp;{label}&nbsp;&nbsp;
-                </Tab>
-              ))}
-            </TabsHeader>
-          </Tabs>
-        </div>
-      </CardHeader>
-      <CardBody className="overflow-scroll px-0 rounded-md">
+    <Card className="rounded-md border border-blue-gray-200  border-2 border border-green-500 border-2">
+      <CardBody className=" ">
         <table className="mt-4  min-w-max table-auto text-left">
           <thead>
             <tr>
@@ -133,7 +115,7 @@ export function Cart() {
                             color="blue-gray"
                             className="font-normal opacity-70"
                           >
-                            {price}
+                           Rs. {price}
                           </Typography>
                         </div>
                       </div>
@@ -177,9 +159,12 @@ export function Cart() {
                     </td>
                     <td className={classes}>
                       <Tooltip content="Edit User">
-                        <IconButton variant="text">
-                          <PencilIcon className="h-4 w-4" />
-                        </IconButton>
+                        <button type="button" class="text-green-700 hover:text-white border border-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-green-500 dark:text-green-500 dark:hover:text-white dark:hover:bg-green-600 dark:focus:ring-green-800">Edite</button>
+                      </Tooltip>
+                    </td>
+                    <td className={classes}>
+                      <Tooltip content="Edit User">
+                        <button type="button" class="text-red-700 hover:text-white border border-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-red-500 dark:text-red-500 dark:hover:text-white dark:hover:bg-red-600 dark:focus:ring-red-900">Delete</button>
                       </Tooltip>
                     </td>
                   </tr>
@@ -190,6 +175,7 @@ export function Cart() {
         </table>
       </CardBody>
     </Card>
+    </div>
     </div>
   );
 }

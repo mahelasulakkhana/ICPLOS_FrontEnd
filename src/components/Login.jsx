@@ -17,7 +17,7 @@ export default function () {
 				<span className="text-green-500">ICP</span>
 				<span className="text-white ml-3">LOS</span>
 			</div>        
-            <label className='relative cursor-pointer mb-4'>
+            <label className='relative cursor-pointer mb-6 '>
                 <input type="text" placeholder="Input" className='h-16 w-150 px-6 text-2xl text-black  border-black border-2 rounded-lg border-opacity-100 outline-none focus:border-blue-500 placeholder-gray-300 placeholder-opacity-0 transition duration-200' />
                 <span className='text-l text-black text-opacity-80  absolute left-5 top-5 px-1 transition duration-200 input-text'>User name</span>
             </label>
