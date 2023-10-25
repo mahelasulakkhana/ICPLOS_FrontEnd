@@ -1,44 +1,31 @@
 import React from 'react'
-import { Grid,Paper, Avatar, TextField, Button, Typography,Link } from '@material-ui/core'
-// import LockIcon from '@mui/icons-material/Lock';
-// import Checkbox from '@material-ui/core/Checkbox';
-const Login=()=>{
 
-    const paperStyle={padding :20,height:'70vh',width:280, margin:"20px auto"}
-    const avatarStyle={backgroundColor:'#1bbd7e'}
-    const btnstyle={margin:'8px 0'}
-    return(
-        <Grid>
-            <Paper elevation={10} style={paperStyle}>
-                <Grid align='center'>
-                    {/* <Avatar style={avatarStyle}><LockIcon/></Avatar> */}
-                    <h2>Sign In</h2>
-                </Grid>
-                <TextField label='Username' placeholder='Enter username' fullWidth required/>
-                <TextField label='Password' placeholder='Enter password' type='password' fullWidth required/>
-                {/* <FormControlLabel
-                    control={
-                    <Checkbox
-                        name="checkedB"
-                        color="primary"
-                    />
-                    }
-                    label="Remember me"
-                 /> */}
-                <Button type='submit' color='primary' variant="contained" style={btnstyle} fullWidth>Sign in</Button>
-                <Typography >
-                     <Link href="#" >
-                        Forgot password ?
-                </Link>
-                </Typography>
-                <Typography > Do you have an account ?
-                     <Link href="#" >
-                        Sign Up 
-                </Link>
-                </Typography>
-            </Paper>
-        </Grid>
-    )
+export default function () {
+  return (
+    
+    <div className="App h-screen flex justify-center items-center bg-gray-500">
+        <div className="flex flex-col border border-green-500 border-2 rounded-lg p-10">
+        <div className="text-2xl text-center">LOGING</div>
+        <div className="flex flex-col items-center">
+                <img
+                    src="https://media.istockphoto.com/id/1300845620/vector/user-icon-flat-isolated-on-white-background-user-symbol-vector-illustration.jpg?s=1024x1024&w=is&k=20&c=-mUWsTSENkugJ3qs5covpaj-bhYpxXY-v9RDpzsw504="                        
+                    alt="Avatar"
+                    className='h-16 w-16 rounded-full border-black border-2 mb-2 mt-2'
+                />
+         </div>       			
+			<div className="text-4xl p-4 text-center mb-5">
+				<span className="text-green-500">ICP</span>
+				<span className="text-white ml-3">LOS</span>
+			</div>        
+            <label className='relative cursor-pointer mb-4'>
+                <input type="text" placeholder="Input" className='h-16 w-150 px-6 text-2xl text-black  border-black border-2 rounded-lg border-opacity-100 outline-none focus:border-blue-500 placeholder-gray-300 placeholder-opacity-0 transition duration-200' />
+                <span className='text-l text-black text-opacity-80  absolute left-5 top-5 px-1 transition duration-200 input-text'>User name</span>
+            </label>
+            <label className='relative cursor-pointer mb-4'>
+                <input type="text" placeholder="Input" className='h-16 w-150 px-6 text-2xl text-black  border-black border-2 rounded-lg border-opacity-100 outline-none focus:border-blue-500 placeholder-gray-300 placeholder-opacity-0 transition duration-200' />
+                <span className='text-l text-black text-opacity-80  absolute left-5 top-5 px-1 transition duration-200 input-text'>Password</span>
+            </label>
+        </div>
+    </div>
+  )
 }
-
-export default Login

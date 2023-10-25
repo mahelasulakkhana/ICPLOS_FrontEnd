@@ -50,7 +50,7 @@ export const DASHBOARD_SIDEBAR_LINKS = [
 	{
 		key: 'addproduct',
 		label: 'Addproduct',
-		path: '/addproduct',
+		href: '/addproduct',
 		icon: <HiOutlineAnnotation />
 	}
 ]
