@@ -6,42 +6,40 @@ import {
     Chip,
     Tooltip,
   } from "@material-tailwind/react";
-  import Sidebar from "./Shared/Sidebar";
+import Sidebar from "./Shared/Sidebar";
   
-  
-   
-  const TABLE_HEAD = ["Name", "Price", "Quentity", "Total", "Edite", "Delete"];
+  const TABLE_HEAD = ["Name", "Price", "Quentity", "Total","Date", "Edite", "Delete"];
    
   const TABLE_ROWS = [
     {
       name: "John Michael",
-      price: "john@creative-tim.com",
+      price: "200.00",
       quentity: "Manager",
-      total: "Organization",
+      total: "1000.00",
       edite: true,
       date: "23/04/18",
     },
     {
       name: "Alexa Liras",
-      price: "alexa@creative-tim.com",
+      price: "250.00",
       quentity: "Programator",
-      total: "Developer",
+      total: "2000.00",
       edite: false,
       date: "23/04/18",
     },
     {
       name: "Laurent Perrier",
-      price: "laurent@creative-tim.com",
+      price: "350.00",
       quentity: "Executive",
-      total: "Projects",
+      total: "2500.00",
       edite: false,
       date: "19/09/17",
     },
     {
       name: "Michael Levi",
-      price: "michael@creative-tim.com",
+      price: "350.00",
       quentity: "Programator",
-      total: "Developer",
+      total: "2500.00",
       edite: true,
       date: "24/12/08",
     },
@@ -93,16 +91,22 @@ export default function Orders() {
                           >
                             {name}
                           </Typography>
-                          <Typography
+                        </div>
+                      </div>
+                    </td>
+                    <td className={classes}>
+                      <div className="flex items-center">
+                        <div className="flex flex-col">
+                    <Typography
                             variant="small"
                             color="blue-gray"
                             className="font-normal opacity-70"
                           >
                            Rs. {price}
                           </Typography>
-                        </div>
-                      </div>
-                    </td>
+                          </div>
+                          </div>
+                          </td>
                     <td className={classes}>
                       <div className="flex flex-col">
                         <Typography
@@ -112,24 +116,17 @@ export default function Orders() {
                         >
                           {quentity}
                         </Typography>
-                        <Typography
-                          variant="small"
-                          color="blue-gray"
-                          className="font-normal opacity-70"
-                        >
-                          {total}
-                        </Typography>
                       </div>
                     </td>
+                    {/*  */}
                     <td className={classes}>
-                      <div className="w-max">
-                        <Chip
-                          variant="ghost"
-                          size="sm"
-                          value={edite ? "online" : "offline"}
-                          color={edite ? "green" : "blue-gray"}
-                        />
-                      </div>
+                      <Typography
+                        variant="small"
+                        color="blue-gray"
+                        className="font-normal"
+                      >
+                        Rs.{total}
+                      </Typography>
                     </td>
                     <td className={classes}>
                       <Typography
@@ -146,7 +143,7 @@ export default function Orders() {
                       </Tooltip>
                     </td>
                     <td className={classes}>
-                      <Tooltip content="Edit User">
+                      <Tooltip content="Delete User">
                         <button type="button" class="text-red-700 hover:text-white border border-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-red-500 dark:text-red-500 dark:hover:text-white dark:hover:bg-red-600 dark:focus:ring-red-900">Delete</button>
                       </Tooltip>
                     </td>

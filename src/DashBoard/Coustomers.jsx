@@ -10,40 +10,24 @@ import {
   
   
    
-  const TABLE_HEAD = ["Name", "Price", "Quentity", "Total", "Edite", "Delete", "Add Order"];
+  const TABLE_HEAD = ["Name", "Email", "Phone Number", "Total", "Edite", "Delete", "Add Order"];
    
   const TABLE_ROWS = [
     {
       name: "John Michael",
-      price: "john@creative-tim.com",
-      quentity: "Manager",
+      email: "john@creative-tim.com",
+      pnonenumber:"0775355479",
+
       total: "Organization",
-      edite: true,
-      date: "23/04/18",
+      
     },
     {
       name: "Alexa Liras",
-      price: "alexa@creative-tim.com",
-      quentity: "Programator",
+      email: "alexa@creative-tim.com",
+      pnonenumber:"0775355479",
+      
       total: "Developer",
-      edite: false,
-      date: "23/04/18",
-    },
-    {
-      name: "Laurent Perrier",
-      price: "laurent@creative-tim.com",
-      quentity: "Executive",
-      total: "Projects",
-      edite: false,
-      date: "19/09/17",
-    },
-    {
-      name: "Michael Levi",
-      price: "michael@creative-tim.com",
-      quentity: "Programator",
-      total: "Developer",
-      edite: true,
-      date: "24/12/08",
+     
     },
   ];
    
@@ -78,7 +62,7 @@ export default function Coustomers() {
         </thead>
         <tbody>
           {TABLE_ROWS.map(
-            ({ name, price, quentity, total, edite, date }, index) => {
+            ({ name, email, pnonenumber, total }, index) => {
               const isLast = index === TABLE_ROWS.length - 1;
               const classes = isLast
                 ? "p-2"
@@ -96,12 +80,31 @@ export default function Coustomers() {
                         >
                           {name}
                         </Typography>
+                      </div>
+                    </div>
+                  </td>
+                  <td className={classes}>
+                    <div className="flex items-center">
+                      <div className="flex flex-col">
                         <Typography
                           variant="small"
                           color="blue-gray"
-                          className="font-normal opacity-70"
+                          className="font-normal"
                         >
-                         Rs. {price}
+                          {email}
+                        </Typography>
+                      </div>
+                    </div>
+                  </td>
+                  <td className={classes}>
+                    <div className="flex items-center">
+                      <div className="flex flex-col">
+                        <Typography
+                          variant="small"
+                          color="blue-gray"
+                          className="font-normal"
+                        >
+                          {pnonenumber}
                         </Typography>
                       </div>
                     </div>
@@ -113,18 +116,24 @@ export default function Coustomers() {
                         color="blue-gray"
                         className="font-normal"
                       >
-                        {quentity}
+                        {total}
                       </Typography>
+                      
+                    </div>
+                  </td>
+                  {/* <td className={classes}>
+                    <div className="flex flex-col">
                       <Typography
                         variant="small"
                         color="blue-gray"
-                        className="font-normal opacity-70"
+                        className="font-normal"
                       >
-                        {total}
+                        {quentity}
                       </Typography>
+                      
                     </div>
-                  </td>
-                  <td className={classes}>
+                  </td> */}
+                  {/* <td className={classes}>
                     <div className="w-max">
                       <Chip
                         variant="ghost"
@@ -133,8 +142,8 @@ export default function Coustomers() {
                         color={edite ? "green" : "blue-gray"}
                       />
                     </div>
-                  </td>
-                  <td className={classes}>
+                  </td> */}
+                  {/* <td className={classes}>
                     <Typography
                       variant="small"
                       color="blue-gray"
@@ -142,7 +151,7 @@ export default function Coustomers() {
                     >
                       {date}
                     </Typography>
-                  </td>
+                  </td> */}
                   <td className={classes}>
                     <Tooltip content="Edit User">
                       <button type="button" class="text-green-700 hover:text-white border border-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-green-500 dark:text-green-500 dark:hover:text-white dark:hover:bg-green-600 dark:focus:ring-green-800">Edite</button>

@@ -10,37 +10,37 @@ import {
 import Sidebar from "./Shared/Sidebar";
 
  
-const TABLE_HEAD = ["Name", "Price", "Discription", "Edite", "Delete"];
+const TABLE_HEAD = ["Name", "Discription", "Price", "Edite", "Delete"];
  
 const TABLE_ROWS = [
   {
     name: "John Michael",
-    price: "john@creative-tim.com",
-    discription: "Manager",
+    price: "Rs.100.00",
+    discription: 'Chicken, Rice, Dhal, Carrot, Gotukola',
     // total: "Organization",
     // edite: true,
     // date: "23/04/18",
   },
   {
     name: "Alexa Liras",
-    price: "alexa@creative-tim.com",
-    discription: "Programator",
+    price: "Rs.200.00",
+    discription: 'Chicken, Rice, Dhal, Carrot, Gotukola',
     // total: "Developer",
     // edite: false,
     // date: "23/04/18",
   },
   {
     name: "Laurent Perrier",
-    price: "laurent@creative-tim.com",
-    discription: "Executive",
+    price: "Rs.250.00",
+    discription: 'Chicken, Rice, Dhal, Carrot, Gotukola',
     // total: "Projects",
     // edite: false,
     // date: "19/09/17",
   },
   {
     name: "Michael Levi",
-    price: "michael@creative-tim.com",
-    discription: "Programator",
+    price: "Rs.350.00",
+    discription: 'Chicken, Rice, Dhal, Carrot, Gotukola',
     // total: "Developer",
     // edite: true,
     // date: "24/12/08",
@@ -48,8 +48,6 @@ const TABLE_ROWS = [
 ];
   export default function Products() {
     return (
-      
-      // <div className="bg-gray">
       <div className="flex">
       <Sidebar/>
       <div className="items-center justify-center p-10 mt-20 ml-20">
@@ -95,13 +93,6 @@ const TABLE_ROWS = [
                             >
                               {name}
                             </Typography>
-                            <Typography
-                              variant="small"
-                              color="blue-gray"
-                              className="font-normal opacity-70"
-                            >
-                            {price}
-                            </Typography>
                           </div>
                         </div>
                       </td>
@@ -114,15 +105,20 @@ const TABLE_ROWS = [
                                 className="font-normal"
                               >
                                 {discription}
-                              </Typography>
+                              </Typography>  
+                        </div>
+                      </div>
+                      </td>
+                      <td className={classes}>
+                      <div className="flex items-center">
+                        <div className="flex flex-col">       
                               <Typography
-                              variant="small"
-                              color="blue-gray"
-                              className="font-normal opacity-70"
-                            >
-                            {price}
-                            </Typography>
-                          
+                                variant="small"
+                                color="blue-gray"
+                                className="font-normal"
+                              >
+                                {price}
+                              </Typography>  
                         </div>
                       </div>
                       </td>
@@ -132,7 +128,7 @@ const TABLE_ROWS = [
                         </Tooltip>
                       </td>
                       <td className={classes}>
-                        <Tooltip content="Edit User">
+                        <Tooltip content="Delete User">
                           <button type="button" className="text-red-700 hover:text-white border border-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-red-500 dark:text-red-500 dark:hover:text-white dark:hover:bg-red-600 dark:focus:ring-red-900">Delete</button>
                         </Tooltip>
                       </td>

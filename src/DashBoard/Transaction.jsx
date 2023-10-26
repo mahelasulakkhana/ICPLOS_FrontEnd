@@ -10,14 +10,14 @@ import Sidebar from "./Shared/Sidebar";
 
 
  
-const TABLE_HEAD = ["Name", "Price", "Quentity", "Total", "Edite", "Delete"];
+const TABLE_HEAD = ["Name", "Price", "Quentity", "Price" ,"Date", "Edite", "Delete", "Send Email"];
  
 const TABLE_ROWS = [
   {
     name: "John Michael",
     price: "john@creative-tim.com",
     quentity: "Manager",
-    total: "Organization",
+    price: "2000.00",
     edite: true,
     date: "23/04/18",
   },
@@ -25,25 +25,9 @@ const TABLE_ROWS = [
     name: "Alexa Liras",
     price: "alexa@creative-tim.com",
     quentity: "Programator",
-    total: "Developer",
+    price: "2000.00",
     edite: false,
     date: "23/04/18",
-  },
-  {
-    name: "Laurent Perrier",
-    price: "laurent@creative-tim.com",
-    quentity: "Executive",
-    total: "Projects",
-    edite: false,
-    date: "19/09/17",
-  },
-  {
-    name: "Michael Levi",
-    price: "michael@creative-tim.com",
-    quentity: "Programator",
-    total: "Developer",
-    edite: true,
-    date: "24/12/08",
   },
 ];
  
@@ -54,6 +38,10 @@ export function Transaction() {
       <Sidebar/>
       <div className="items-center justify-center p-10 mt-20 ml-20 ">
     <Card className="rounded-md border border-blue-gray-200  border-2 border border-green-500 border-2">
+    <label className='relative cursor-pointer p-4 '>
+        <input type="text" placeholder="Input" className='h-10 w-150 px-6 text-2xl text-black  border-black border-2 rounded-lg border-opacity-100 outline-none focus:border-blue-500 placeholder-gray-300 placeholder-opacity-0 transition duration-200' />
+        <span className='center items-center justify-center text-l text-black text-opacity-80  absolute left-5 top-5 px-1 transition duration-200 input-text'>User ID</span>
+    </label>
       <CardBody className=" ">
         <table className="mt-4  min-w-max table-auto text-left">
           <thead>
@@ -94,13 +82,7 @@ export function Transaction() {
                           >
                             {name}
                           </Typography>
-                          <Typography
-                            variant="small"
-                            color="blue-gray"
-                            className="font-normal opacity-70"
-                          >
-                           Rs. {price}
-                          </Typography>
+                          
                         </div>
                       </div>
                     </td>
@@ -113,13 +95,7 @@ export function Transaction() {
                         >
                           {quentity}
                         </Typography>
-                        <Typography
-                          variant="small"
-                          color="blue-gray"
-                          className="font-normal opacity-70"
-                        >
-                          {total}
-                        </Typography>
+                  
                       </div>
                     </td>
                     <td className={classes}>
@@ -138,6 +114,15 @@ export function Transaction() {
                         color="blue-gray"
                         className="font-normal"
                       >
+                        {price}
+                      </Typography>
+                    </td>
+                    <td className={classes}>
+                      <Typography
+                        variant="small"
+                        color="blue-gray"
+                        className="font-normal"
+                      >
                         {date}
                       </Typography>
                     </td>
@@ -149,6 +134,11 @@ export function Transaction() {
                     <td className={classes}>
                       <Tooltip content="Edit User">
                         <button type="button" class="text-red-700 hover:text-white border border-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-red-500 dark:text-red-500 dark:hover:text-white dark:hover:bg-red-600 dark:focus:ring-red-900">Delete</button>
+                      </Tooltip>
+                    </td>
+                    <td className={classes}>
+                      <Tooltip content="Send Email">
+                        <button type="button" class="text-blue-700 hover:text-white border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-red-500 dark:text-red-500 dark:hover:text-white dark:hover:bg-red-600 dark:focus:ring-red-900">Email</button>
                       </Tooltip>
                     </td>
                   </tr>

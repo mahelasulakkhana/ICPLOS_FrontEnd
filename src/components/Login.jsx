@@ -5,6 +5,7 @@ export default function () {
     
     <div className="App h-screen flex justify-center items-center bg-gray-500">
         <div className="flex flex-col border border-green-500 border-2 rounded-lg p-10">
+            
         <div className="text-2xl text-center">LOGING</div>
         <div className="flex flex-col items-center">
                 <img
@@ -12,7 +13,7 @@ export default function () {
                     alt="Avatar"
                     className='h-16 w-16 rounded-full border-black border-2 mb-2 mt-2'
                 />
-         </div>       			
+        </div>       			
 			<div className="text-4xl p-4 text-center mb-5">
 				<span className="text-green-500">ICP</span>
 				<span className="text-white ml-3">LOS</span>
