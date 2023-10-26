@@ -1,12 +1,11 @@
-import React from 'react';
-import Sidebar from './Shared/Sidebar';
+import React from 'react'
+import Sidebar from './Shared/Sidebar'
 
-export default function Addproduct() {
-
-  return (  
+export default function AddUser() {
+  return (
     <div className="App h-screen flex  bg-gray-500">
         <Sidebar/>
-        <div className='App h-screen bg-gray-500 justify-center items-center p-20 ml-40 mt-20'>
+        <div className='App h-screen bg-gray-500 justify-center items-center p-10 ml-40 '>
         <div className="flex flex-col border border-green-500 border-2 rounded-lg p-10">
         <label className='relative cursor-pointer mb-4'>
             <input type="text" placeholder="Input" className='h-16 w-150 px-6 text-2xl text-black bg-white border-black border-2 rounded-lg border-opacity-100 outline-none focus:border-blue-500 placeholder-gray-300 placeholder-opacity-0 transition duration-200' />
@@ -14,11 +13,19 @@ export default function Addproduct() {
         </label>
         <label className='relative cursor-pointer mb-4'>
             <input type="text" placeholder="Input" className='h-16 w-150 px-6 text-2xl text-black bg-white border-black border-2 rounded-lg border-opacity-100 outline-none focus:border-blue-500 placeholder-gray-300 placeholder-opacity-0 transition duration-200' />
-            <span className='text-l text-black text-opacity-80 bg-white absolute left-5 top-5 px-1 transition duration-200 input-text'>Price</span>
+            <span className='text-l text-black text-opacity-80 bg-white absolute left-5 top-5 px-1 transition duration-200 input-text'>Email</span>
         </label>
         <label className='relative cursor-pointer mb-4'>
             <input type="text" placeholder="Input" className='h-16 w-150 px-6 text-2xl text-black bg-white border-black border-2 rounded-lg border-opacity-100 outline-none focus:border-blue-500 placeholder-gray-300 placeholder-opacity-0 transition duration-200' />
-            <span className='text-l text-black text-opacity-80 bg-white absolute left-5 top-5 px-1 transition duration-200 input-text'>Description</span>
+            <span className='text-l text-black text-opacity-80 bg-white absolute left-5 top-5 px-1 transition duration-200 input-text'>Phone Number</span>
+        </label>
+        <label className='relative cursor-pointer mb-4'>
+            <input type="text" placeholder="Input" className='h-16 w-150 px-6 text-2xl text-black bg-white border-black border-2 rounded-lg border-opacity-100 outline-none focus:border-blue-500 placeholder-gray-300 placeholder-opacity-0 transition duration-200' />
+            <span className='text-l text-black text-opacity-80 bg-white absolute left-5 top-5 px-1 transition duration-200 input-text'>User name</span>
+        </label>
+        <label className='relative cursor-pointer mb-4'>
+            <input type="text" placeholder="Input" className='h-16 w-150 px-6 text-2xl text-black bg-white border-black border-2 rounded-lg border-opacity-100 outline-none focus:border-blue-500 placeholder-gray-300 placeholder-opacity-0 transition duration-200' />
+            <span className='text-l text-black text-opacity-80 bg-white absolute left-5 top-5 px-1 transition duration-200 input-text'>User Role</span>
         </label>
         <label className='relative cursor-pointer mb-4'>
             <input type="file" className='hidden' />
@@ -34,5 +41,5 @@ export default function Addproduct() {
       </div>
       </div>
     </div>
-  );
+  )
 }

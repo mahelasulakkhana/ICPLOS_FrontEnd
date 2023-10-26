@@ -1,68 +1,150 @@
 import React from "react";
+import {
+  Card,
+  Typography,
+  CardBody,
+  Chip,
+  IconButton,
+  Tooltip,
+} from "@material-tailwind/react";
+import Sidebar from "./Shared/Sidebar";
 
-
-const products = [
-    {
-      id: 1,
-      name: 'Rice & Curry Chicken',
-      href: '#',
-      price: 'Rs.480',
-      imageSrc: 'https://images.unsplash.com/photo-1596560548464-f010549b84d7?auto=format&fit=crop&q=80&w=2940&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-      imageAlt: 'Tall slender porcelain bottle with natural clay textured body and cork stopper.',
-    },
-    {
-      id: 2,
-      name: 'Rice & Curry Fish',
-      href: '#',
-      price: 'Rs.350',
-      imageSrc: 'https://images.unsplash.com/photo-1516714435131-44d6b64dc6a2?auto=format&fit=crop&q=80&w=2000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-      imageAlt: 'Olive drab green insulated bottle with flared screw lid and flat top.',
-    },
-    {
-      id: 3,
-      name: 'Rice & Curry Egg',
-      href: '#',
-      price: 'Rs.890',
-      imageSrc: 'https://images.unsplash.com/photo-1564671165093-20688ff1fffa?auto=format&fit=crop&q=80&w=2766&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-      imageAlt: 'Person using a pen to cross a task off a productivity paper card.',
-    },
-    {
-      id: 4,
-      name: 'Rice & Curry Vegitable',
-      href: '#',
-      price: 'Rs.350',
-      imageSrc: 'https://images.unsplash.com/photo-1512058556646-c4da40fba323?auto=format&fit=crop&q=80&w=2809&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-      imageAlt: 'Hand holding black machined steel mechanical pencil with brass tip and top.',
-    },
-    // More products...
-  ]
-  
+ 
+const TABLE_HEAD = ["Name", "Price", "Discription", "Edite", "Delete"];
+ 
+const TABLE_ROWS = [
+  {
+    name: "John Michael",
+    price: "john@creative-tim.com",
+    discription: "Manager",
+    // total: "Organization",
+    // edite: true,
+    // date: "23/04/18",
+  },
+  {
+    name: "Alexa Liras",
+    price: "alexa@creative-tim.com",
+    discription: "Programator",
+    // total: "Developer",
+    // edite: false,
+    // date: "23/04/18",
+  },
+  {
+    name: "Laurent Perrier",
+    price: "laurent@creative-tim.com",
+    discription: "Executive",
+    // total: "Projects",
+    // edite: false,
+    // date: "19/09/17",
+  },
+  {
+    name: "Michael Levi",
+    price: "michael@creative-tim.com",
+    discription: "Programator",
+    // total: "Developer",
+    // edite: true,
+    // date: "24/12/08",
+  },
+];
   export default function Products() {
     return (
-      <div className="bg-white">
-        <div className="text-4xl p-4 text-center">
-            <span className="text-green-500">ICP</span>
-            <span className="text-black ml-5">Lunch Ordering System</span>
-        </div>
-        <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
-          <h2 className="sr-only">Products</h2>
+      
+      // <div className="bg-gray">
+      <div className="flex">
+      <Sidebar/>
+      <div className="items-center justify-center p-10 mt-20 ml-20">
+      <Card className="rounded-md border border-blue-gray-200  border-2 border border-green-500 border-2">
+        <CardBody className=" ">
+          <table className="mt-4  min-w-max table-auto text-left">
+            <thead>
+              <tr>
+                {TABLE_HEAD.map((head) => (
+                  <th
+                    key={head}
+                    className="border-y border-blue-gray-100 bg-blue-gray-50/50 p-4"
+                  >
+                    <Typography
+                      variant="small"
+                      color="blue-gray"
+                      className="font-normal leading-none opacity-70"
+                    >
+                      {head}
+                    </Typography>
+                  </th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {TABLE_ROWS.map(
+                ({ name, price, discription}, index) => {
+                  const isLast = index === TABLE_ROWS.length - 1;
+                  const classes = isLast
+                    ? "p-2"
+                    : "p-4 border-b border-blue-gray-50";
+   
+                  return (
+                    <tr key={name}>
+                      <td className={classes}>
+                        <div className="flex items-center">
   
-          <div className="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
-            {products.map((product) => (
-              <a key={product.id} href={product.href} className="group">
-                <div className="aspect-h-1 aspect-w-1 w-full h-80 overflow-hidden rounded-lg bg-gray-200 xl:aspect-h-8 xl:aspect-w-7 border border-green-500 border-2">
-                  <img
-                    src={product.imageSrc}
-                    alt={product.imageAlt}
-                    className="h-full w-full object-cover object-center group-hover:opacity-75"
-                  />
-                </div>
-                <h3 className="mt-4 text-sm text-gray-700">{product.name}</h3>
-                <p className="mt-1 text-lg font-medium text-gray-900">{product.price}</p>
-              </a>
-            ))}
-          </div>
-        </div>
+                          <div className="flex flex-col">
+                            <Typography
+                              variant="small"
+                              color="blue-gray"
+                              className="font-normal"
+                            >
+                              {name}
+                            </Typography>
+                            <Typography
+                              variant="small"
+                              color="blue-gray"
+                              className="font-normal opacity-70"
+                            >
+                            {price}
+                            </Typography>
+                          </div>
+                        </div>
+                      </td>
+                      <td className={classes}>
+                      <div className="flex items-center">
+                        <div className="flex flex-col">       
+                              <Typography
+                                variant="small"
+                                color="blue-gray"
+                                className="font-normal"
+                              >
+                                {discription}
+                              </Typography>
+                              <Typography
+                              variant="small"
+                              color="blue-gray"
+                              className="font-normal opacity-70"
+                            >
+                            {price}
+                            </Typography>
+                          
+                        </div>
+                      </div>
+                      </td>
+                      <td className={classes}>
+                        <Tooltip content="Edit User">
+                          <button type="button" className="text-green-700 hover:text-white border border-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-green-500 dark:text-green-500 dark:hover:text-white dark:hover:bg-green-600 dark:focus:ring-green-800">Edite</button>
+                        </Tooltip>
+                      </td>
+                      <td className={classes}>
+                        <Tooltip content="Edit User">
+                          <button type="button" className="text-red-700 hover:text-white border border-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-red-500 dark:text-red-500 dark:hover:text-white dark:hover:bg-red-600 dark:focus:ring-red-900">Delete</button>
+                        </Tooltip>
+                      </td>
+                    </tr>
+                  );
+                },
+              )}
+            </tbody>
+          </table>
+        </CardBody>
+      </Card>
       </div>
-    )
+    </div>
+    );
   }

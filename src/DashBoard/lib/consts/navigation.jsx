@@ -6,15 +6,14 @@ import {
 	HiOutlineDocumentText,
 	HiOutlineAnnotation,
 	HiOutlineQuestionMarkCircle,
-	HiOutlineCog,
-	
+	HiOutlineCog	
 } from 'react-icons/hi'
 
 export const DASHBOARD_SIDEBAR_LINKS = [
 	{
-		key: 'dashboard',
-		label: 'Dashboard',
-		path: '/',
+		key: 'menu',
+		label: 'Menu',
+		path: '/m enu',
 		icon: <HiOutlineViewGrid />
 	},
 	{
@@ -31,26 +30,26 @@ export const DASHBOARD_SIDEBAR_LINKS = [
 	},
 	{
 		key: 'customers',
-		label: 'Customers',
-		path: '/customers',
+		label: 'Users',
+		path: '/coustomers',
 		icon: <HiOutlineUsers />
 	},
 	{
 		key: 'transactions',
 		label: 'Transactions',
-		path: '/transactions',
+		path: '/transaction',
 		icon: <HiOutlineDocumentText />
 	},
 	{
 		key: 'addcoustomer',
 		label: 'Addcoustomer',
-		path: '/addcoustomer',
+		path: '/addUser',
 		icon: <HiOutlineUsers/>
 	},
 	{
 		key: 'addproduct',
 		label: 'Addproduct',
-		href: '/addproduct',
+		path: '/addproduct',
 		icon: <HiOutlineAnnotation />
 	}
 ]

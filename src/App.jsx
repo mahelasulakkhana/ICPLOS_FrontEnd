@@ -1,40 +1,59 @@
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 import Home from './components/Home'
 import Navbar from './components/Navbar'
 import { Cart } from './components/Cart'
 import History from './components/History'
 import UserProfile from './components/UserProfile'
+import { Transaction } from './DashBoard/Transaction';
+import Login from './components/Login';
 import Sidebar from './DashBoard/Shared/Sidebar'
 import { Header } from './DashBoard/Shared/Header';
-import Login from './components/Login';
 import Addproduct from './DashBoard/Addproduct';
+// import Products from './DashBoard/Product';
+import Coustomers from './DashBoard/Coustomers';
+import { Profile } from './components/Profile';
 import Products from './DashBoard/Products';
-import Dashboard from './DashBoard/Dashboard';
+import AddUser from './DashBoard/AddUser';
+import Orders from './DashBoard/Orders';
+import Menu from './DashBoard/Menu';
 
 
 function App() {
+
+  function getLocation() {
+    const location = window.location;
+    console.log(location.pathname);
+    return location.pathname
+  }
+
   return (
-    
+      <>
        <Router>
         <>
+  
+        {/* {getLocation() !== '/dashboard' && <Navbar/>} */}
         <Routes>
-            <Route exact path='dashboard' element={<Dashboard/>}/> 
-            <Route exact path='sidebar' element={<Sidebar/>}/>
-            <Route exact path='header' element={<Header/>}/>
-            <Route exact path='products' element={<Products/>}/>
-        </Routes>
-        <Navbar/>
-        <Routes>
-                <Route exact path='/' element={<Home/>}/>
-                <Route exact path='cart' element={<Cart/>}/>
-                <Route exact path='history' element={<History/>}/>
-                <Route exact path='userprofile' element={<UserProfile/>}/>  
-                <Route exact path='login' element={<Login/>}/> 
-                <Route exact path='addproduct' element={<Addproduct/>}/>     
+    
+          <Route exact path='products' element={<><Products/></>}/>
+          <Route exact path='coustomers' element={<><Coustomers/></>}/>
+          <Route exact path='addproduct' element={<><Addproduct/></>}/>
+          <Route exact path='addUser' element={<><AddUser/></>}/>
+          <Route exact path='orders' element={<><Orders/></>}/> 
+          <Route exact path='transaction' element={<><Transaction/></>}/>
+          <Route exact path='menu' element={<><Menu/></>}/>
+        
+          
+  
+          <Route exact path='login' element={<><Login/></>}/> 
+            <Route exact path='/' element={<><Navbar/><Home/></>}/>
+            <Route exact path='cart' element={<><Navbar/><Cart/></>}/>
+            <Route exact path='history' element={<><Navbar/><History/></>}/>
+            <Route exact path='userprofile' element={<><Navbar/><UserProfile/></>}/>  
+            <Route exact path='profile' element={<><Navbar/><Profile/></>}/>      
         </Routes>
         </>
        </Router>
-        
+      </>
   )
 }
 

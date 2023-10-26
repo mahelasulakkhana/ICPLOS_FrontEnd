@@ -1,5 +1,5 @@
 import React from "react";
-// import React, { useState, useEffect } from 'react';
+
 
 const products = [
     {
@@ -37,26 +37,13 @@ const products = [
     // More products...
   ]
   
-  export default function Home() {
+  export default function Menu() {
     return (
-      // const [posts, setPosts] = useState([]);
-      // useEffect(() => {
-      //     fetch('https://localhost:7184/api/Products/admin/all')
-      //       .then((response) => response.json())
-      //       .then((data) => {
-      //           console.log(data);
-      //           setPosts(data);
-      //       })
-      //       .catch((err) => {
-      //           console.log(err.message);
-      //       });
-      // }, []);
-
       <div className="bg-white">
-        <div className="text-4xl p-4 text-center">
+        {/* <div className="text-4xl p-4 text-center">
             <span className="text-green-500">ICP</span>
             <span className="text-black ml-5">Lunch Ordering System</span>
-        </div>
+        </div> */}
         <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
           <h2 className="sr-only">Products</h2>
   
@@ -77,5 +64,5 @@ const products = [
           </div>
         </div>
       </div>
-    );
+    )
   }
