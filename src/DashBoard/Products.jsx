@@ -17,33 +17,25 @@ const TABLE_ROWS = [
     name: "John Michael",
     price: "Rs.100.00",
     discription: 'Chicken, Rice, Dhal, Carrot, Gotukola',
-    // total: "Organization",
-    // edite: true,
-    // date: "23/04/18",
+
   },
   {
     name: "Alexa Liras",
     price: "Rs.200.00",
     discription: 'Chicken, Rice, Dhal, Carrot, Gotukola',
-    // total: "Developer",
-    // edite: false,
-    // date: "23/04/18",
+
   },
   {
     name: "Laurent Perrier",
     price: "Rs.250.00",
     discription: 'Chicken, Rice, Dhal, Carrot, Gotukola',
-    // total: "Projects",
-    // edite: false,
-    // date: "19/09/17",
+
   },
   {
     name: "Michael Levi",
     price: "Rs.350.00",
     discription: 'Chicken, Rice, Dhal, Carrot, Gotukola',
-    // total: "Developer",
-    // edite: true,
-    // date: "24/12/08",
+
   },
 ];
   export default function Products() {

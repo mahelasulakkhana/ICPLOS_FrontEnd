@@ -15,7 +15,7 @@ const TABLE_HEAD = ["Name", "Price", "Quentity", "Price" ,"Date", "Edite", "Dele
 const TABLE_ROWS = [
   {
     name: "John Michael",
-    price: "john@creative-tim.com",
+   
     quentity: "Manager",
     price: "2000.00",
     edite: true,
@@ -23,7 +23,7 @@ const TABLE_ROWS = [
   },
   {
     name: "Alexa Liras",
-    price: "alexa@creative-tim.com",
+  
     quentity: "Programator",
     price: "2000.00",
     edite: false,
