@@ -22,10 +22,10 @@ import { Signin } from './services/user';
 
 function App() {
 
-  useEffect(() => {
-    const response = Signin("mahela@icptechno.com", "#Mahela123");
+  // useEffect(() => {
+  //   const response = Signin("mahela@icptechno.com", "#Mahela123");
 
-  }, [])
+  // }, [])
 
   // function getLocation() {
   //   const location = window.location;

@@ -1,19 +1,29 @@
 import axios from "axios"
 
-export async function AddUser(name, email,phoneNumber,password, avatar, roleId){
-    const responce = await axios.post("https://localhost:7184/api/User/admin",{
-        name : name,
-        email : email,
-        phoneNumber : phoneNumber,
-        password : password,
-        avatar : avatar,
-        roleId : roleId
-    })
-
-    if(responce.status = 200){
-        localStorage.setItem("accessToken", responce.data.accessToken)
-        localStorage.setItem("refreshToken", responce.data.refreshToken)
-        localStorage.setItem("userDetails", JSON.stringify(responce.data.user))
+//Add User
+export async function AddUser(name, email, phoneNumber, password, avatar, roleId) {
+    try {
+        const token = localStorage.getItem("accessToken")
+        const responce = await axios.post("https://localhost:7184/api/User/admin", {
+            name: name,
+            email: email,
+            phoneNumber: phoneNumber,
+            password: password,
+            avatar: avatar,
+            roleId: roleId
+        }, {
+            headers: {
+                'Authorization': `Bearer ${token}`
+            }
+        })
+        return responce;
+    } catch (e) {
+        console.log(e)
     }
+}
+
+//Get All Users
+export async function GetAllUsers() {
+    const responce = await axios.get("https://localhost:7184/api/User/admin/all");
     return responce;
 }
