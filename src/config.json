@@ -1,0 +1,5 @@
+{
+    "addUserApiUrl":"https://localhost:7184/api/User/admin",
+    "getAllUsersApiUrl":"https://localhost:7184/api/User/admin/all",
+    "updateUserApi" : "https://localhost:7184/api/User"
+}

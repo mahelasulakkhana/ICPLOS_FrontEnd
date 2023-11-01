@@ -6,19 +6,14 @@ import History from './components/History'
 import UserProfile from './components/UserProfile'
 import { Transaction } from './DashBoard/Transaction';
 import Login from './components/Login';
-import Sidebar from './DashBoard/Shared/Sidebar'
-import { Header } from './DashBoard/Shared/Header';
 import Addproduct from './DashBoard/Addproduct';
-// import Products from './DashBoard/Product';
 import Coustomers from './DashBoard/Coustomers';
-// import { Profile } from './components/Profile';
 import Products from './DashBoard/Products';
 import AddUser from './DashBoard/AddUser';
 import Orders from './DashBoard/Orders';
 import Menu from './DashBoard/Menu';
 import Order from './components/Order';
-import { useEffect } from 'react';
-import { Signin } from './services/user';
+import UpdateCoustomer from './DashBoard/UpdateCoustomer';
 
 function App() {
 
@@ -46,8 +41,8 @@ function App() {
             <Route exact path='orders' element={<><Orders /></>} />
             <Route exact path='transaction' element={<><Transaction /></>} />
             <Route exact path='menu' element={<><Menu /></>} />
-
-
+            <Route exact path='updatecoustomer/:id' element={<><UpdateCoustomer/></>} />
+          
 
             <Route exact path='login' element={<><Login /></>} />
             <Route exact path='/' element={<><Navbar /><Home /></>} />

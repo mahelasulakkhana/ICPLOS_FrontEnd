@@ -45,7 +45,7 @@ const products = [
     return (
       <div>
         {/* <Sidebar/> */}
-      <div className="bg-white">
+      <div className="bg-white" >
         
         <div className="text-4xl p-4 mt-10 ml-10">
             <span className="text-green-500">MENU</span>

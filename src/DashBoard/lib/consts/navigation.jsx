@@ -13,7 +13,7 @@ export const DASHBOARD_SIDEBAR_LINKS = [
 	{
 		key: 'menu',
 		label: 'Menu',
-		path: '/m enu',
+		path: '/menu',
 		icon: <HiOutlineViewGrid />
 	},
 	{
@@ -36,16 +36,16 @@ export const DASHBOARD_SIDEBAR_LINKS = [
 	},
 	{
 		key: 'transactions',
-		label: 'Transactions',
+		label: 'User Payment History',
 		path: '/transaction',
 		icon: <HiOutlineDocumentText />
 	},
-	{
-		key: 'addcoustomer',
-		label: 'Addcoustomer',
-		path: '/addUser',
-		icon: <HiOutlineUsers/>
-	},
+	// {
+	// 	key: 'addcoustomer',
+	// 	label: 'Addcoustomer',
+	// 	path: '/addUser',
+	// 	icon: <HiOutlineUsers/>
+	// },
 	{
 		key: 'addproduct',
 		label: 'Addproduct',
