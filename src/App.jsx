@@ -49,7 +49,7 @@ function App() {
             <Route exact path='cart' element={<><Navbar /><Cart /></>} />
             <Route exact path='history' element={<><Navbar /><History /></>} />
             <Route exact path='userprofile' element={<><Navbar /><UserProfile /></>} />
-            <Route exact path='order' element={<><Navbar /><Order /></>} />
+            <Route exact path='order/:id' element={<><Order /></>} />
           </Routes>
         </>
       </Router>

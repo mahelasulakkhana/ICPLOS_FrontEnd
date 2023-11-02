@@ -11,42 +11,77 @@ export default function AddUser() {
     //     const user = JSON.parse(localStorage.getItem("userDetails"))
     // }
 
+    const url = "https://localhost:7184/api/Products/admin/all"
+    const [data, setData] = useState({
+        name : "",
+        email : "",
+        phoneNumber : "",
+        password : "",
+        avatar : ""
+    })
+
+    function submit(e){
+        e.preventDefault();
+        axios.post(url,{
+            name : data.name,
+            email : data.email,
+            phoneNumber : data.phoneNumber,
+            password : data.password,
+            avatar : data.avatar
+        })
+        .then(res => {
+            console.log(res.data)
+        })
+    }
+
+    function handle(e) {
+        const newData = {...data}
+        newData[e.target.id] = e.target.value
+        setData(newData)
+        console.log(newData)
+    }
+
+
     return (
         <div className="App h-screen flex  bg-gray-500">
             <Sidebar />
             <div className='App h-screen bg-gray-500 justify-center items-center p-10 ml-40 '>
-                <div className="flex flex-col border border-green-500 border-2 rounded-lg p-10">    
+                <div className="flex flex-col border border-green-500 border-2 rounded-lg p-10"> 
+                <form onSubmit={(e) => submit(e)}> 
+              
                     <label className='relative cursor-pointer mb-4'>
-                        <input type="text" placeholder="Input" className='h-16 w-150 px-6 text-2xl text-black bg-white border-black border-2 rounded-lg border-opacity-100 outline-none focus:border-blue-500 placeholder-gray-300 placeholder-opacity-0 transition duration-200' />
+                        <input type="text" onChange={(e) => handle(e)} id='name' value={data.name} placeholder="Input" className='h-10 w-150 px-6 text-2xl text-black bg-white border-black border-2 rounded-lg border-opacity-100 outline-none focus:border-blue-500 placeholder-gray-300 placeholder-opacity-0 transition duration-200' />
                         <span className='text-l text-black text-opacity-80 bg-white absolute left-5 top-5 px-1 transition duration-200 input-text'>Name</span>
                     </label>
                     <label className='relative cursor-pointer mb-4'>
-                        <input type="text" placeholder="Input" className='h-16 w-150 px-6 text-2xl text-black bg-white border-black border-2 rounded-lg border-opacity-100 outline-none focus:border-blue-500 placeholder-gray-300 placeholder-opacity-0 transition duration-200' />
+                        <input type="text" onChange={(e) => handle(e)} id='email' value={data.email} placeholder="Input" className='h-10 w-150 px-6 text-2xl text-black bg-white border-black border-2 rounded-lg border-opacity-100 outline-none focus:border-blue-500 placeholder-gray-300 placeholder-opacity-0 transition duration-200' />
                         <span className='text-l text-black text-opacity-80 bg-white absolute left-5 top-5 px-1 transition duration-200 input-text'>Email</span>
                     </label>
                     <label className='relative cursor-pointer mb-4'>
-                        <input type="text" placeholder="Input" className='h-16 w-150 px-6 text-2xl text-black bg-white border-black border-2 rounded-lg border-opacity-100 outline-none focus:border-blue-500 placeholder-gray-300 placeholder-opacity-0 transition duration-200' />
+                        <input type="text" onChange={(e) => handle(e)} id='phoneNumber' value={data.phoneNumber} placeholder="Input" className='h-10 w-150 px-6 text-2xl text-black bg-white border-black border-2 rounded-lg border-opacity-100 outline-none focus:border-blue-500 placeholder-gray-300 placeholder-opacity-0 transition duration-200' />
                         <span className='text-l text-black text-opacity-80 bg-white absolute left-5 top-5 px-1 transition duration-200 input-text'>Phone Number</span>
                     </label>
                     <label className='relative cursor-pointer mb-4'>
-                        <input type="text" placeholder="Input" className='h-16 w-150 px-6 text-2xl text-black bg-white border-black border-2 rounded-lg border-opacity-100 outline-none focus:border-blue-500 placeholder-gray-300 placeholder-opacity-0 transition duration-200' />
-                        <span className='text-l text-black text-opacity-80 bg-white absolute left-5 top-5 px-1 transition duration-200 input-text'>User name</span>
+                        <input type="text" onChange={(e) => handle(e)} id='password' value={data.password} placeholder="Input" className='h-10 w-150 px-6 text-2xl text-black bg-white border-black border-2 rounded-lg border-opacity-100 outline-none focus:border-blue-500 placeholder-gray-300 placeholder-opacity-0 transition duration-200' />
+                        <span className='text-l text-black text-opacity-80 bg-white absolute left-5 top-5 px-1 transition duration-200 input-text'>Password</span>
                     </label>
                     <label className='relative cursor-pointer mb-4'>
-                        <input type="text" placeholder="Input" className='h-16 w-150 px-6 text-2xl text-black bg-white border-black border-2 rounded-lg border-opacity-100 outline-none focus:border-blue-500 placeholder-gray-300 placeholder-opacity-0 transition duration-200' />
-                        <span className='text-l text-black text-opacity-80 bg-white absolute left-5 top-5 px-1 transition duration-200 input-text'>User Role</span>
+                        <input type="text" onChange={(e) => handle(e)} id='avatar' value={data.avatar} placeholder="Input" className='h-10 w-150 px-6 text-2xl text-black bg-white border-black border-2 rounded-lg border-opacity-100 outline-none focus:border-blue-500 placeholder-gray-300 placeholder-opacity-0 transition duration-200' />
+                        <span className='text-l text-black text-opacity-80 bg-white absolute left-5 top-5 px-1 transition duration-200 input-text'>Avatar</span>
                     </label>
-                    <label className='relative cursor-pointer mb-4'>
+                    {/* <label className='relative cursor-pointer mb-4'>
                         <input type="file" className='hidden' />
                         <div className='h-16 w-150 px-6 text-l text-black bg-white border-black border-2 rounded-lg border-opacity-100 flex items-center justify-center outline-none focus:border-blue-500'>
                             <span className='text-l text-black text-opacity-80 transition duration-200 input-text'>UPLOAD IMAGE</span>
                         </div>
-                    </label>
+                    </label> */}
                     <label className='relative cursor-pointer mb-4'>
-                        <button type="button" className='h-16 w-150 px-6 text-l text-black bg-black border-black border-2 rounded-lg border-opacity-100 flex items-center justify-center outline-none focus:border-blue-500'>
+                        <button type="button" className='h-10 w-150 px-6 text-l text-black bg-black border-black border-2 rounded-lg border-opacity-100 flex items-center justify-center outline-none focus:border-blue-500'>
                             <span className='text-l text-white text-opacity-80 transition duration-200 input-text'>ADD</span>
                         </button>
                     </label>
+                    
+                </form>    
                 </div>
             </div>
         </div>

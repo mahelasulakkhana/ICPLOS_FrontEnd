@@ -1,5 +1,13 @@
 {
+    
     "addUserApiUrl":"https://localhost:7184/api/User/admin",
     "getAllUsersApiUrl":"https://localhost:7184/api/User/admin/all",
-    "updateUserApi" : "https://localhost:7184/api/User"
+    "updateUserApi":"https://localhost:7184/api/User",
+    
+    "getAllProductsAPI":"https://localhost:7184/api/Products/admin/all",
+   
+
+    "getOneProductAPI":"https://localhost:7184/api/products/5d5baedb-c37c-4cc1-a29b-13f8f73cbb4e"
+
+
 }
