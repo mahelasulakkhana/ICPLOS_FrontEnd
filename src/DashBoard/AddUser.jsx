@@ -47,26 +47,27 @@ export default function AddUser() {
             <Sidebar />
             <div className='App h-screen bg-gray-500 justify-center items-center p-10 ml-40 '>
                 <div className="flex flex-col border border-green-500 border-2 rounded-lg p-10"> 
-                <form onSubmit={(e) => submit(e)}> 
+                {/* <form onSubmit={(e) => submit(e)}>  */}
               
                     <label className='relative cursor-pointer mb-4'>
-                        <input type="text" onChange={(e) => handle(e)} id='name' value={data.name} placeholder="Input" className='h-10 w-150 px-6 text-2xl text-black bg-white border-black border-2 rounded-lg border-opacity-100 outline-none focus:border-blue-500 placeholder-gray-300 placeholder-opacity-0 transition duration-200' />
+                    {/* onChange={(e) => handle(e)} id='name' value={data.name} placeholder="Input" */}
+                        <input type="text"  className='h-10 w-150 px-6 text-2xl text-black bg-white border-black border-2 rounded-lg border-opacity-100 outline-none focus:border-blue-500 placeholder-gray-300  transition duration-200' />
                         <span className='text-l text-black text-opacity-80 bg-white absolute left-5 top-5 px-1 transition duration-200 input-text'>Name</span>
                     </label>
                     <label className='relative cursor-pointer mb-4'>
-                        <input type="text" onChange={(e) => handle(e)} id='email' value={data.email} placeholder="Input" className='h-10 w-150 px-6 text-2xl text-black bg-white border-black border-2 rounded-lg border-opacity-100 outline-none focus:border-blue-500 placeholder-gray-300 placeholder-opacity-0 transition duration-200' />
+                        <input type="text"  className='h-10 w-150 px-6 text-2xl text-black bg-white border-black border-2 rounded-lg border-opacity-100 outline-none focus:border-blue-500 placeholder-gray-300  transition duration-200' />
                         <span className='text-l text-black text-opacity-80 bg-white absolute left-5 top-5 px-1 transition duration-200 input-text'>Email</span>
                     </label>
                     <label className='relative cursor-pointer mb-4'>
-                        <input type="text" onChange={(e) => handle(e)} id='phoneNumber' value={data.phoneNumber} placeholder="Input" className='h-10 w-150 px-6 text-2xl text-black bg-white border-black border-2 rounded-lg border-opacity-100 outline-none focus:border-blue-500 placeholder-gray-300 placeholder-opacity-0 transition duration-200' />
+                        <input type="text"  className='h-10 w-150 px-6 text-2xl text-black bg-white border-black border-2 rounded-lg border-opacity-100 outline-none focus:border-blue-500 placeholder-gray-300  transition duration-200' />
                         <span className='text-l text-black text-opacity-80 bg-white absolute left-5 top-5 px-1 transition duration-200 input-text'>Phone Number</span>
                     </label>
                     <label className='relative cursor-pointer mb-4'>
-                        <input type="text" onChange={(e) => handle(e)} id='password' value={data.password} placeholder="Input" className='h-10 w-150 px-6 text-2xl text-black bg-white border-black border-2 rounded-lg border-opacity-100 outline-none focus:border-blue-500 placeholder-gray-300 placeholder-opacity-0 transition duration-200' />
+                        <input type="text"  className='h-10 w-150 px-6 text-2xl text-black bg-white border-black border-2 rounded-lg border-opacity-100 outline-none focus:border-blue-500 placeholder-gray-300  transition duration-200' />
                         <span className='text-l text-black text-opacity-80 bg-white absolute left-5 top-5 px-1 transition duration-200 input-text'>Password</span>
                     </label>
                     <label className='relative cursor-pointer mb-4'>
-                        <input type="text" onChange={(e) => handle(e)} id='avatar' value={data.avatar} placeholder="Input" className='h-10 w-150 px-6 text-2xl text-black bg-white border-black border-2 rounded-lg border-opacity-100 outline-none focus:border-blue-500 placeholder-gray-300 placeholder-opacity-0 transition duration-200' />
+                        <input type="text" className='h-10 w-150 px-6 text-2xl text-black bg-white border-black border-2 rounded-lg border-opacity-100 outline-none focus:border-blue-500 placeholder-gray-300  transition duration-200' />
                         <span className='text-l text-black text-opacity-80 bg-white absolute left-5 top-5 px-1 transition duration-200 input-text'>Avatar</span>
                     </label>
                     {/* <label className='relative cursor-pointer mb-4'>
@@ -81,7 +82,7 @@ export default function AddUser() {
                         </button>
                     </label>
                     
-                </form>    
+                {/* </form>     */}
                 </div>
             </div>
         </div>

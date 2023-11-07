@@ -12,8 +12,12 @@ import Products from './DashBoard/Products';
 import AddUser from './DashBoard/AddUser';
 import Orders from './DashBoard/Orders';
 import Menu from './DashBoard/Menu';
-import Order from './components/Order';
+// import Order from './components/Order';
 import UpdateCoustomer from './DashBoard/UpdateCoustomer';
+import Quentity from './components/Quentity';
+import RatingPage from './components/RatingPage';
+import Payment from './components/Payment';
+// import OrderNew from './components/OrderNew';
 
 function App() {
 
@@ -21,12 +25,6 @@ function App() {
   //   const response = Signin("mahela@icptechno.com", "#Mahela123");
 
   // }, [])
-
-  // function getLocation() {
-  //   const location = window.location;
-  //   console.log(location.pathname);
-  //   return location.pathname
-  // }
 
   return (
     <>
@@ -49,7 +47,11 @@ function App() {
             <Route exact path='cart' element={<><Navbar /><Cart /></>} />
             <Route exact path='history' element={<><Navbar /><History /></>} />
             <Route exact path='userprofile' element={<><Navbar /><UserProfile /></>} />
-            <Route exact path='order/:id' element={<><Order /></>} />
+            {/* <Route exact path='order/:id' element={<><Order /></>} /> */}
+            {/* <Route exact path='ordernew' element={<><OrderNew /></>} /> */}
+            <Route exact path='quentity/:id' element={<><Quentity/></>} />
+            <Route exact path='ratingpage' element={<><RatingPage/></>} />
+            <Route exact path='payment' element={<><Payment/></>} />
           </Routes>
         </>
       </Router>
