@@ -2,7 +2,7 @@ import React from 'react';
 
 const UserProfile = () => {
   return (
-    <div className="flex items-center justify-center mt-20 bg-gray-500">
+    <div className="flex items-center justify-center  bg-gray-500 h-[675px]">
       <div className="bg-white p-8 rounded-lg shadow-md border-2 border-green-500">
         <img
           src="https://media.istockphoto.com/id/1300845620/vector/user-icon-flat-isolated-on-white-background-user-symbol-vector-illustration.jpg?s=1024x1024&w=is&k=20&c=-mUWsTSENkugJ3qs5covpaj-bhYpxXY-v9RDpzsw504="                        

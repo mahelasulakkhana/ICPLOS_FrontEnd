@@ -34,7 +34,7 @@ export default function Coustomers() {
     <div className="items-center justify-center mt-20 ml-20 ">
 
     <Tooltip content="Add User">
-      <button type="button" onClick={() => navigate("/addUser")} className="text-purple-700 hover:text-white border border-purple-700 hover:bg-purple-800 focus:ring-4 focus:outline-none focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-purple-500 dark:text-purple-500 dark:hover:text-white dark:hover:bg-purple-600 dark:focus:ring-purple-900">Add User</button>
+      <button type="button" onClick={() => navigate("/addusernew")} className="text-purple-700 hover:text-white border border-purple-700 hover:bg-purple-800 focus:ring-4 focus:outline-none focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-purple-500 dark:text-purple-500 dark:hover:text-white dark:hover:bg-purple-600 dark:focus:ring-purple-900">Add User</button>
     </Tooltip>
   <Card className="rounded-md border border-blue-gray-200  border-2 border border-green-500 border-2">
     <CardBody >

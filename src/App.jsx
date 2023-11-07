@@ -18,6 +18,7 @@ import Quentity from './components/Quentity';
 import RatingPage from './components/RatingPage';
 import Payment from './components/Payment';
 import Ratinglist from './DashBoard/Ratinglist';
+import AdduserNew from './DashBoard/AdduserNew';
 // import OrderNew from './components/OrderNew';
 
 function App() {
@@ -42,6 +43,7 @@ function App() {
             <Route exact path='menu' element={<><Menu /></>} />
             <Route exact path='updatecoustomer/:id' element={<><UpdateCoustomer/></>} />
             <Route exact path='ratinglist' element={<><Ratinglist/></>}/>
+            <Route exact path='addusernew' element={<><AdduserNew/></>}/>
             
           
 
