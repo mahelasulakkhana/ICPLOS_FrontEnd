@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import config from "../config.json";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
   
   export default function Home() {
@@ -32,7 +32,8 @@ import { useNavigate } from "react-router-dom";
           <div className="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8"> 
             {products.map((product) => (
             // <div onClick={() => navigate(`/order/${product.id}`)} >
-              <a key={product.id} href={product.href} className="group">
+              // <a key={product.id} href={product.href} className="group">\
+              <Link  key={product.id} to={`/quentity/${product.id}`}>
                 <div className="aspect-h-1 aspect-w-1 w-full h-80 overflow-hidden rounded-lg bg-gray-200 xl:aspect-h-8 xl:aspect-w-7 border border-green-500 border-2">
                   <img
                     src={product.pictureUrl}
@@ -43,7 +44,8 @@ import { useNavigate } from "react-router-dom";
                 <h3 className="mt-4 text-sm text-gray-700">{product.name}</h3>
                 <p className="mt-1 text-lg font-medium text-gray-900">{product.price}</p>
                 <h4 className="mt-4 text-sm text-gray-700">{product.description}</h4>
-              </a>
+              
+            </Link>
             // </div>  
             ))}
           </div>

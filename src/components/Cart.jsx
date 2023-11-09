@@ -7,10 +7,11 @@ import {
   IconButton,
   Tooltip,
 } from "@material-tailwind/react";
+import { useEffect } from "react";
 
 
  
-const TABLE_HEAD = ["Name", "Price", "Quentity", "Total", "Edite", "Delete"];
+const TABLE_HEAD = ["Name", "Price", "Quentity", "Edite", "Delete"];
  
 const TABLE_ROWS = [
   {
@@ -31,6 +32,42 @@ const TABLE_ROWS = [
 ];
  
 export function Cart() {
+
+  // const [user, setUser] = useState();
+
+  // const navigate = useNavigate();
+
+  // useEffect(() => {
+  //   const userData = localStorage.getItem("logUser")
+
+  //   if(userData){
+  //     setUser(JSON.parse(userData)?.user);
+  //     console.log(JSON.parse(userData));
+  //   }else{
+  //     navigate("/login");
+  //   }
+    
+  // }, [])
+
+  // useEffect(() => {
+  //   let config = {
+  //     method: 'get',
+  //     maxBodyLength: Infinity,
+  //     url: 'https://localhost:7184/api/Order/{{OrderID}}',
+  //     headers: { 
+  //       'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoibmF2aW5kdUBnbWFpbC5jb20iLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJVc2VyIiwiZXhwIjoxNjk5NTA2MzE2LCJpc3MiOiJodHRwczovL2xvY2FsaG9zdDo3MTg0IiwiYXVkIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6NzE4NCJ9.6GT31NRhmZYxjtm56Uxt9AV27BdQSYj9qfJpjh6cCCQ'
+  //     }
+  //   };
+    
+  //   axios.request(config)
+  //   .then((response) => {
+  //     console.log(response.data);
+  //   })
+  //   .catch((error) => {
+  //     console.log(error);
+  //   });
+  // }, [user])
+
   return (
     <div className="bg-gray">
     <div className="flex items-center justify-center mt-20 ">
@@ -105,7 +142,7 @@ export function Cart() {
                         
                       </div>
                     </td>
-                    <td className={classes}>
+                    {/* <td className={classes}>
                       <div className="flex flex-col">
                     <Typography
                           variant="small"
@@ -115,7 +152,7 @@ export function Cart() {
                           {total}
                         </Typography>
                         </div>
-                        </td>
+                        </td> */}
                     <td className={classes}>
                       <Tooltip content="Edite Order">
                         <button type="button" className="text-green-700 hover:text-white border border-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-green-500 dark:text-green-500 dark:hover:text-white dark:hover:bg-green-600 dark:focus:ring-green-800">Edite</button>

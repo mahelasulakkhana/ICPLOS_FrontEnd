@@ -12,14 +12,14 @@ import Products from './DashBoard/Products';
 import AddUser from './DashBoard/AddUser';
 import Orders from './DashBoard/Orders';
 import Menu from './DashBoard/Menu';
-// import Order from './components/Order';
 import UpdateCoustomer from './DashBoard/UpdateCoustomer';
 import Quentity from './components/Quentity';
 import RatingPage from './components/RatingPage';
 import Payment from './components/Payment';
 import Ratinglist from './DashBoard/Ratinglist';
 import AdduserNew from './DashBoard/AdduserNew';
-// import OrderNew from './components/OrderNew';
+import QuentityPopUp from './components/QuentityPopUp';
+
 
 function App() {
 
@@ -57,6 +57,7 @@ function App() {
             <Route exact path='quentity/:id' element={<><Quentity/></>} />
             <Route exact path='ratingpage' element={<><RatingPage/></>} />
             <Route exact path='payment' element={<><Payment/></>} />
+            <Route exact path='quentitypopup/:id' element={<><QuentityPopUp/></>} />
           </Routes>
         </>
       </Router>

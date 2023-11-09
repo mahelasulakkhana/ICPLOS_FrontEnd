@@ -11,7 +11,7 @@ export default function AddUser() {
     //     const user = JSON.parse(localStorage.getItem("userDetails"))
     // }
 
-    const url = "https://localhost:7184/api/Products/admin/all"
+    // const url = "https://localhost:7184/api/Products/admin/all"
     const [data, setData] = useState({
         name : "",
         email : "",
@@ -20,26 +20,27 @@ export default function AddUser() {
         avatar : ""
     })
 
-    function submit(e){
-        e.preventDefault();
-        axios.post(url,{
-            name : data.name,
-            email : data.email,
-            phoneNumber : data.phoneNumber,
-            password : data.password,
-            avatar : data.avatar
-        })
-        .then(res => {
-            console.log(res.data)
-        })
-    }
+    const handleChange = (e) => {
+        const value = e.target.value;
+        setData({
+          ...data,
+          [e.target.name]: value
+        });
+    };
 
-    function handle(e) {
-        const newData = {...data}
-        newData[e.target.id] = e.target.value
-        setData(newData)
-        console.log(newData)
-    }
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        const userData = {
+            name: data.name,
+            email: data.email,
+            phoneNumber: data.phoneNumber,
+            password: data.password,
+            avatar: data.avatar
+        };
+        axios.post("https://localhost:7184/api/Products/admin/all", userData).then((response) => {
+          console.log(response.status, response.data.token);
+        });
+    };
 
 
     return (
@@ -47,7 +48,7 @@ export default function AddUser() {
             <Sidebar />
             <div className='App h-screen bg-gray-500 justify-center items-center p-10 ml-40 '>
                 <div className="flex flex-col border border-green-500 border-2 rounded-lg p-10"> 
-                {/* <form onSubmit={(e) => submit(e)}>  */}
+                {/* <form nSubmit={handleSubmit}>  */}
               
                     <label className='relative cursor-pointer mb-4'>
                     {/* onChange={(e) => handle(e)} id='name' value={data.name} placeholder="Input" */}

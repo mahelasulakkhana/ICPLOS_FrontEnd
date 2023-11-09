@@ -1,9 +1,10 @@
 import React from 'react'
 
-export const Header = () => {
+export default function Header() {
   return (
-    <div className='bg-blue-500 h-20 flex items-center justify-center'>
-      Header
+    <div>
+      hedare
     </div>
   )
 }
+
