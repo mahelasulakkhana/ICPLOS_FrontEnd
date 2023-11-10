@@ -61,7 +61,7 @@ export default function Quentity() {
                     </div>
                 </div>
             </div>
-            <QuentityPopUp onClose={handleOnClose} visible={showMyModal} />
+            <QuentityPopUp onClose={handleOnClose} visible={showMyModal} productId={id} />
             {/* key={product.id} to={`/quentity/${product.id}` */}
         </div>
     )

@@ -9,7 +9,7 @@
 
     "getOneProductAPI":"https://localhost:7184/api/products/5d5baedb-c37c-4cc1-a29b-13f8f73cbb4e",
 
-    "getallOrdersAPI":"https://localhost:7184/api/Order/admin/all?isToday=true"
+    "getallOrdersAPI":"https://localhost:7184/api/Order/admin/all?isToday=false"
 
     
 }

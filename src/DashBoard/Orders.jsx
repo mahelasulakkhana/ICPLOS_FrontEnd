@@ -25,23 +25,27 @@ export default function Orders() {
     fetchOrder();
   }, []);
 
-  handleRemove = orders => {
-    const url = `https://localhost:7184/api/Order/${orders.id}`; //
+  // handleRemove = orders => {
+  //   const url = `https://localhost:7184/api/Order/${orders.id}`; //
 
-    axios
-      .delete(url)
-      .then(res => {
-        this.setState(previousState => {
-          return {
-            orders: previousState.orders.filter(m => m.id !== order.id)
-          };
-        });
-      })
-      .catch(err => {
-        console.log(err);
-      });
-  };
-  // console.log(orders);
+  //   axios
+  //     .delete(url)
+  //     .then(res => {
+  //       this.setState(previousState => {
+  //         return {
+  //           orders: previousState.orders.filter(m => m.id !== orders.id)
+  //         };
+  //       });
+  //     })
+  //     .catch(err => {
+  //       console.log(err);
+  //     });
+  // };
+
+  const productName = orders[0]?.orderProducts[0]?.product?.name;
+  // console.log(productName);
+  // console.log(orders.orderProducts[0].product.name);
+
 
   return (
     <div className="flex ">
@@ -79,7 +83,7 @@ export default function Orders() {
                               variant="small"
                               className="font-normal"
                             >
-                              {order.name}
+                              {order.orderProducts[0]?.product?.name}
                             </Typography>
                           </div>
                         </div>
@@ -91,7 +95,7 @@ export default function Orders() {
                               variant="small"
                               className="font-normal opacity-70"
                             >
-                              {order.quantity}
+                              {order.orderProducts[0]?.quantity}
                             </Typography>
                           </div>
                         </div>
@@ -102,7 +106,7 @@ export default function Orders() {
                             variant="small"
                             className="font-normal"
                           >
-                            {order.orderProducts.currentPrice}
+                            {order.orderProducts[0]?.currentPrice}
                           </Typography>
                         </div>
                       </td>

@@ -1,15 +1,21 @@
 import axios from 'axios';
 import React, { useState } from 'react'
 import { useParams } from 'react-router-dom';
+import RemoveCookie from '../cookie/removeCookie';
+import SetCookie from '../cookie/setCookie';
 
-export default function QuentityPopUp({ visible, onClose }) {
+export default function QuentityPopUp({ visible, onClose , productId }) {
 
-    const {id} = useParams();
+    // const {id} = useParams();
+
+    // console.log(productId);
 
     const [data, setData] = useState({
-        productID: id,
+        id: productId,
         quntity: ""
     })
+
+    console.log(data);
 
     const handleChange = (e) => {
         const value = e.target.value;
@@ -22,11 +28,23 @@ export default function QuentityPopUp({ visible, onClose }) {
     const handleSubmit = (e) => {
         e.preventDefault();
         const userData = {
-            // productID, // Add productId
-            quntity: data.quntity,
+            order: [
+                {
+                    productID: data.id, // Use productID instead of id
+                    quantity: data.quntity, // Correct the spelling to quantity
+                }
+            ]
         };
-        axios.post("https://localhost:7184/api/Order", userData).then((response) => {
+        axios.post("https://localhost:7184/api/Order", userData)
+        .then((response) => {
             console.log(response.status, response.data.token);
+            if (response.data) {
+                RemoveCookie('order')
+                SetCookie('order', JSON.stringify(response.data));
+            }
+        })
+        .catch((error) => {
+            console.error('Error:', error);
         });
     };
 
@@ -49,11 +67,11 @@ export default function QuentityPopUp({ visible, onClose }) {
                     <div className="flex flex-col">
                         <input
                             onChange={handleChange}
-                            value={data.quentity}
+                            value={data.quntity}
                             type="text"
-                            name='quentity'
+                            name='quntity'
                             className="border border-gray-700 p-2 rounded mb-4"
-                            placeholder="Add Quentity"
+                            placeholder="Add Quntity"
                         />
                     </div>
                     <div className="text-center">

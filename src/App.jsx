@@ -19,6 +19,8 @@ import Payment from './components/Payment';
 import Ratinglist from './DashBoard/Ratinglist';
 import AdduserNew from './DashBoard/AdduserNew';
 import QuentityPopUp from './components/QuentityPopUp';
+import Updateaddproduct from './DashBoard/Updateproduct';
+import Updateproduct from './DashBoard/Updateproduct';
 
 
 function App() {
@@ -44,7 +46,7 @@ function App() {
             <Route exact path='updatecoustomer/:id' element={<><UpdateCoustomer/></>} />
             <Route exact path='ratinglist' element={<><Ratinglist/></>}/>
             <Route exact path='addusernew' element={<><AdduserNew/></>}/>
-            
+            <Route exact path='updateproduct/:id' element={<><Updateproduct/></>}/>
           
 
             <Route exact path='login' element={<><Login /></>} />

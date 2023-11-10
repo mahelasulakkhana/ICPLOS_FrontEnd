@@ -1,7 +1,7 @@
 import Cookies from 'js-cookie';
 
-const SetCookie = (cookiename, usrin) =>{
-    Cookies.set(cookiename, usrin, {
+const SetCookie = (cookiename, order) =>{
+    Cookies.set(cookiename, order, {
         expires:7,
         secure:true,
         sameSite:'Strict',
