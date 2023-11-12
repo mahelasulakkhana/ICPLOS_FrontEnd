@@ -47,12 +47,12 @@ export const DASHBOARD_SIDEBAR_LINKS = [
 	// 	path: '/addUser',
 	// 	icon: <HiOutlineUsers/>
 	// },
-	{
-		key: 'addproduct',
-		label: 'Addproduct',
-		path: '/addproduct',
-		icon: <HiOutlineAnnotation />
-	},
+	// {
+	// 	key: 'addproduct',
+	// 	label: 'Addproduct',
+	// 	path: '/addproduct',
+	// 	icon: <HiOutlineAnnotation />
+	// },
 	{
 		key: 'ratinglist',
 		label: 'Ratinglist',

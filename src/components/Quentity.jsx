@@ -37,11 +37,6 @@ export default function Quentity() {
 
     const handleOnClose = () => setShowMyModal(false);
 
-    // const handleProceed = (e) => {
-    //     history.push(`/quentitypopup/${id}`);
-    // };
-
-
     return (
         <div className='flex justify-center items-center pt-20 bg-gray-500 pb-20'>
             
@@ -62,7 +57,6 @@ export default function Quentity() {
                 </div>
             </div>
             <QuentityPopUp onClose={handleOnClose} visible={showMyModal} productId={id} />
-            {/* key={product.id} to={`/quentity/${product.id}` */}
         </div>
     )
 }

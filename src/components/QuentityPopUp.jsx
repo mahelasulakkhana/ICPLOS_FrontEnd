@@ -1,14 +1,9 @@
 import axios from 'axios';
-import React, { useState } from 'react'
-import { useParams } from 'react-router-dom';
+import React, { useState } from 'react';
 import RemoveCookie from '../cookie/removeCookie';
 import SetCookie from '../cookie/setCookie';
 
-export default function QuentityPopUp({ visible, onClose , productId }) {
-
-    // const {id} = useParams();
-
-    // console.log(productId);
+export default function QuentityPopUp({ visible, onClose, productId }) {
 
     const [data, setData] = useState({
         id: productId,
@@ -25,27 +20,46 @@ export default function QuentityPopUp({ visible, onClose , productId }) {
         });
     };
 
+    const storedData = localStorage.getItem("logUser");
+
+    // Parse the stored data
+    const parsedData = JSON.parse(storedData);
+
+    // Get the access token from the parsed data
+    const accessToken = parsedData?.accessToken;
+
+    // Now you can use the accessToken variable as needed
+    console.log("Access Token:", accessToken);
+
     const handleSubmit = (e) => {
         e.preventDefault();
+
         const userData = {
             order: [
                 {
-                    productID: data.id, // Use productID instead of id
-                    quantity: data.quntity, // Correct the spelling to quantity
+                    productID: data.id,
+                    quantity: data.quntity,
                 }
             ]
         };
-        axios.post("https://localhost:7184/api/Order", userData)
-        .then((response) => {
-            console.log(response.status, response.data.token);
-            if (response.data) {
-                RemoveCookie('order')
-                SetCookie('order', JSON.stringify(response.data));
+
+        axios.post("https://localhost:7184/api/Order", userData, {
+            headers: {
+                'Authorization': `Bearer ${accessToken}`,
+                'Content-Type': 'application/json',
+                // Add other headers as needed
             }
         })
-        .catch((error) => {
-            console.error('Error:', error);
-        });
+            .then((response) => {
+                console.log(response.status, response.data.token);
+                if (response.data) {
+                    RemoveCookie('order');
+                    SetCookie('order', JSON.stringify(response.data));
+                }
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
     };
 
     // console.log(data);
@@ -62,7 +76,6 @@ export default function QuentityPopUp({ visible, onClose , productId }) {
                 <h1 className="font-semibold text-center text-xl text-gray-700 p-4">
                     Pleace Add Quentity
                 </h1>
-                {/* <p className="text-center text-gray-700 mb-5">Sign in</p> */}
                 <form onSubmit={handleSubmit} className='p-4'>
                     <div className="flex flex-col">
                         <input

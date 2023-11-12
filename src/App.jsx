@@ -9,7 +9,7 @@ import Login from './components/Login';
 import Addproduct from './DashBoard/Addproduct';
 import Coustomers from './DashBoard/Coustomers';
 import Products from './DashBoard/Products';
-import AddUser from './DashBoard/AddUser';
+// import AddUser from './DashBoard/AddUser';
 import Orders from './DashBoard/Orders';
 import Menu from './DashBoard/Menu';
 import UpdateCoustomer from './DashBoard/UpdateCoustomer';
@@ -19,7 +19,7 @@ import Payment from './components/Payment';
 import Ratinglist from './DashBoard/Ratinglist';
 import AdduserNew from './DashBoard/AdduserNew';
 import QuentityPopUp from './components/QuentityPopUp';
-import Updateaddproduct from './DashBoard/Updateproduct';
+// import Updateaddproduct from './DashBoard/Updateproduct';
 import Updateproduct from './DashBoard/Updateproduct';
 
 
@@ -39,7 +39,7 @@ function App() {
             <Route exact path='products' element={<><Products /></>} />
             <Route exact path='coustomers' element={<><Coustomers /></>} />
             <Route exact path='addproduct' element={<><Addproduct /></>} />
-            <Route exact path='addUser' element={<><AddUser /></>} />
+            {/* <Route exact path='addUser' element={<><AddUser /></>} /> */}
             <Route exact path='orders' element={<><Orders /></>} />
             <Route exact path='transaction' element={<><Transaction /></>} />
             <Route exact path='menu' element={<><Menu /></>} />

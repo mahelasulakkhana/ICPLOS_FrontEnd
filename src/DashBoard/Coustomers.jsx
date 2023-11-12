@@ -9,12 +9,14 @@ import Sidebar from "./Shared/Sidebar";
 import axios from 'axios';
 import config from "../config.json";
 import { Link, useNavigate } from 'react-router-dom';
+import Addorderforuser from './Addorderforuser';
 
-const TABLE_HEAD = ["User ID", "Name", "Email", "Phone Number", "Edite", "Delete", "Add Order"];
+const TABLE_HEAD = ["Name", "Email", "Phone Number", "Edite", "Delete", "Add Order"];
 
 export default function Coustomers() {
 
   const navigate = useNavigate();
+
   const [users, setUsers] = useState([]);
 
   useEffect(() => {
@@ -26,6 +28,14 @@ export default function Coustomers() {
   }, []);
 
   //console.log(users);
+
+  const deleteCoustomer = async (id) => {
+    await axios.delete(`https://localhost:7184/api/User/admin/${id}`);
+  }
+
+  const [showMyModal, setShowMyModal] = useState(false);
+
+  const handleOnClose = () => setShowMyModal(false);
 
   return (
 
@@ -60,20 +70,8 @@ export default function Coustomers() {
               <tbody>
                 {users.map((users) => {
                   return (
+                    <div>
                     <tr key={users.id}>
-                      <td className="p-4 border-b border-blue-gray-50">
-                        <div className="flex items-center">
-                          <div className="flex flex-col">
-                            <Typography
-                              variant="small"
-                              color="blue-gray"
-                              className="font-normal"
-                            >
-                              {users.id}
-                            </Typography>
-                          </div>
-                        </div>
-                      </td>
                       <td className="p-4 border-b border-blue-gray-50">
                         <div className="flex items-center">
                           <div className="flex flex-col">
@@ -115,21 +113,23 @@ export default function Coustomers() {
                       </td>
                       <td className="p-4 border-b border-blue-gray-50">
                         <Tooltip content="Edit User">
-                          <Link type="button" to={`/updateproduct/${users.id}`} className="text-green-700 hover:text-white border border-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-green-500 dark:text-green-500 dark:hover:text-white dark:hover:bg-green-600 dark:focus:ring-green-800">Update</Link>
+                          <Link type="button" to={`/updatecoustomer/${users.id}`} className="text-green-700 hover:text-white border border-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-green-500 dark:text-green-500 dark:hover:text-white dark:hover:bg-green-600 dark:focus:ring-green-800">Update</Link>
                         </Tooltip>
                       </td>
                       <td className="p-4 border-b border-blue-gray-50">
                         <Tooltip content="Edit User">
-                          <button type="button" className="text-red-700 hover:text-white border border-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-red-500 dark:text-red-500 dark:hover:text-white dark:hover:bg-red-600 dark:focus:ring-red-900">Delete</button>
+                          <button onClick={() => deleteCoustomer(users.id)}  type="button" className="text-red-700 hover:text-white border border-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-red-500 dark:text-red-500 dark:hover:text-white dark:hover:bg-red-600 dark:focus:ring-red-900">Delete</button>
                         </Tooltip>
                       </td>
                       <td className="p-4 border-b border-blue-gray-50">
                         <Tooltip content="Add Urder">
-                          <button type="button" className="text-blue-700 hover:text-white border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-red-500 dark:text-blue-500 dark:hover:text-white dark:hover:bg-blue-600 dark:focus:ring-blue-900">Add Order</button>
+                          <button onClick={() => setShowMyModal(true)} type="button" className="text-blue-700 hover:text-white border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-red-500 dark:text-blue-500 dark:hover:text-white dark:hover:bg-blue-600 dark:focus:ring-blue-900">Add Order</button>
                         </Tooltip>
                       </td>
                     </tr>
-                  );
+                    <Addorderforuser onClose={handleOnClose} visible={showMyModal} productId={users.id} />
+                    </div>
+                  ); 
                 })}
               </tbody>
             </table>
