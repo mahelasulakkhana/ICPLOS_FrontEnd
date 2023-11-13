@@ -1,16 +1,16 @@
 import React from 'react'
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
-export default function Addorderforuser(visible, onClose, productID) {
+export default function Addorderforuser( ) {
 
-    const handleOnClose = (e) => {
-        if (e.target.id === "container") onClose();
-    };
+    const navigate = useNavigate();
 
-    if (!visible) return null;
+    const handleAddOrder = () => {
+        navigate('/coustomers'); // Change '/customers' to the appropriate path
+    }
 
     return (
-        <div id='container' onClick={handleOnClose} className='fixed inset-0 bg-black bg-opacity-0 backdrop-blur-sm flex justify-center items-center'>
+        <div id='container'  className='fixed bg-gray-500  inset-0  backdrop-blur-sm flex justify-center items-center'>
             <div className='bg-white p-2 border-2 border-green-500 rounded'>
                 <h1 className="font-semibold text-center text-xl text-gray-700 p-4">
                     Add Quentity
@@ -25,7 +25,7 @@ export default function Addorderforuser(visible, onClose, productID) {
                         />
                     </div>
                     <div className="text-center">
-                        <button  type="button" className="px-5 py-2 bg-gray-700 text-white rounded text-sm hover:bg-gray focus:ring-2 focus:ring-green-500">
+                        <button  onClick={handleAddOrder}  type="button" className="px-5 py-2 bg-gray-700 text-white rounded text-sm hover:bg-gray focus:ring-2 focus:ring-green-500">
                             ADD ORDER
                         </button>
                     </div>

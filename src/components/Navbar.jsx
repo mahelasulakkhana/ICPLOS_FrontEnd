@@ -2,13 +2,14 @@ import React from "react";
 import { Fragment } from 'react'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
+import { useNavigate } from "react-router-dom";
 
 
 const navigation = [
-  { name: 'HOME', href:'/',current: false },
-  { name: 'CART', href: 'cart', current: false },
-  { name: 'HISTORY', href: 'history', current: false },
-  { name: 'SUPPORT', href: '', current: false },
+  { name: 'HOME', href: '/', current: true },
+  { name: 'CART', href: 'cart', current: true },
+  { name: 'HISTORY', href: 'history', current: true },
+  { name: 'SUPPORT', href: '', current: true },
 ]
 
 function classNames(...classes) {
@@ -16,6 +17,18 @@ function classNames(...classes) {
 }
 
 export default function Navbar() {
+
+  const navigate = useNavigate();
+
+  const handleSignOut = () => {
+    // Clear the access token
+    localStorage.removeItem('accessToken');
+    // Redirect or perform any other actions after signing out
+
+    navigate('/login');
+  };
+
+
   return (
     <Disclosure as="nav" className="white-800">
       {({ open }) => (
@@ -37,8 +50,8 @@ export default function Navbar() {
               <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
                 <div className="flex flex-shrink-0 items-center">
                   <img
-                    className="h-8 w-auto"
-                    src="https://icptechno.com/wp-content/uploads/2022/01/ICP-Logo-165X36.png"
+                    className="h-[40px] w-[30px]"
+                    src="https://icptechno.com/assets/img/home/ICPIcon.png"
                     alt="Your Company"
                   />
                 </div>
@@ -78,7 +91,7 @@ export default function Navbar() {
                       <span className="sr-only">Open user menu</span>
                       <img
                         className="h-8 w-8 rounded-full"
-                        src="https://media.istockphoto.com/id/1300845620/vector/user-icon-flat-isolated-on-white-background-user-symbol-vector-illustration.jpg?s=1024x1024&w=is&k=20&c=-mUWsTSENkugJ3qs5covpaj-bhYpxXY-v9RDpzsw504="                        
+                        src="https://media.istockphoto.com/id/1300845620/vector/user-icon-flat-isolated-on-white-background-user-symbol-vector-illustration.jpg?s=1024x1024&w=is&k=20&c=-mUWsTSENkugJ3qs5covpaj-bhYpxXY-v9RDpzsw504="
                         alt=""
                       />
                     </Menu.Button>
@@ -116,6 +129,7 @@ export default function Navbar() {
                       <Menu.Item>
                         {({ active }) => (
                           <a
+                            onClick={handleSignOut}
                             href="#"
                             className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
                           >

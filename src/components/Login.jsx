@@ -1,8 +1,10 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Controller, useForm } from 'react-hook-form';
 import FormElement from '../FormElement/FormElement';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+// import jwt_decode from 'jwt-decode';
+
 
 
 export default function () {
@@ -11,6 +13,37 @@ export default function () {
 
     const { control, handleSubmit, formState: { errors } } = useForm();
 
+ 
+        const storedData = localStorage.getItem("logUser");
+
+        // Parse the stored data
+        const parsedData = JSON.parse(storedData);
+
+        // Get the access token from the parsed data
+        const accessToken = parsedData?.accessToken;
+
+        const token = accessToken;
+
+        // console.log(token);
+
+        const decodedToken = atob(token.split('.')[1]);
+        console.log(JSON.parse(decodedToken));
+
+
+        if (decodedToken["http://schemas.microsoft.com/ws/2008/06/identity/claims/role"] === "Admin") {
+
+            console.log("User is an admin");
+            navigate("/menu")
+
+            // http://schemas.microsoft.com/ws/2008/06/identity/claims/role
+        } else {
+            // if(decodedToken["http://schemas.microsoft.com/ws/2008/06/identity/claims/role"] === "User")
+            console.log("User is not an admin");
+            navigate("/")
+        }
+
+
+
     const onSubmit = (data) => {
         // console.log(data);
 
@@ -18,22 +51,22 @@ export default function () {
             method: 'post',
             maxBodyLength: Infinity,
             url: 'https://localhost:7184/api/Auth/Login',
-            headers: { 
-              'Content-Type': 'application/json'
+            headers: {
+                'Content-Type': 'application/json'
             },
-            data : data
-          };
-          
-          axios.request(config)
-          .then((response) => {
-            // console.log(response.data);
-            localStorage.setItem("logUser",JSON.stringify(response.data));
-            navigate("/")
-          })
-          .catch((error) => {
-            console.log(error);
-          });
-          
+            data: data
+        };
+
+        axios.request(config)
+            .then((response) => {
+                // console.log(response.data);
+                localStorage.setItem("logUser", JSON.stringify(response.data));
+
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+
     };
 
     return (

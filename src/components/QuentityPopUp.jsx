@@ -2,8 +2,11 @@ import axios from 'axios';
 import React, { useState } from 'react';
 import RemoveCookie from '../cookie/removeCookie';
 import SetCookie from '../cookie/setCookie';
+import { Link, useNavigate } from 'react-router-dom';
 
 export default function QuentityPopUp({ visible, onClose, productId }) {
+
+    const navigate = useNavigate();
 
     const [data, setData] = useState({
         id: productId,
@@ -53,7 +56,7 @@ export default function QuentityPopUp({ visible, onClose, productId }) {
             .then((response) => {
                 console.log(response.status, response.data.token);
                 if (response.data) {
-                    RemoveCookie('order');
+                    // RemoveCookie('order');
                     SetCookie('order', JSON.stringify(response.data));
                 }
             })
@@ -88,9 +91,9 @@ export default function QuentityPopUp({ visible, onClose, productId }) {
                         />
                     </div>
                     <div className="text-center">
-                        <button type="addtocart" className="px-5 py-2 bg-gray-700 text-white rounded text-sm hover:bg-gray focus:ring-2 focus:ring-green-500">
+                        <Link to={"/"} type="addtocart" className="px-5 py-2 bg-gray-700 text-white rounded text-sm hover:bg-gray focus:ring-2 focus:ring-green-500">
                             ADD TO CART
-                        </button>
+                        </Link>
                     </div>
                 </form>
             </div>

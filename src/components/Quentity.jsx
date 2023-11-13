@@ -42,7 +42,7 @@ export default function Quentity() {
             
             <div className="max-w-sm bg-white border-2 border-green-500 rounded-lg ">
                 <a href="#">
-                    <img className="rounded-t-lg" src={item?.pictureUrl} alt="" />
+                    <img className="rounded-t-lg h-[319px] w-[400px] object-cover" src={item?.pictureUrl} alt="" />
                 </a>
                 <div className="p-5">
                     <a href="#">

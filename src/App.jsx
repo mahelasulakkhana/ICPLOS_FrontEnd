@@ -9,7 +9,6 @@ import Login from './components/Login';
 import Addproduct from './DashBoard/Addproduct';
 import Coustomers from './DashBoard/Coustomers';
 import Products from './DashBoard/Products';
-// import AddUser from './DashBoard/AddUser';
 import Orders from './DashBoard/Orders';
 import Menu from './DashBoard/Menu';
 import UpdateCoustomer from './DashBoard/UpdateCoustomer';
@@ -19,16 +18,11 @@ import Payment from './components/Payment';
 import Ratinglist from './DashBoard/Ratinglist';
 import AdduserNew from './DashBoard/AdduserNew';
 import QuentityPopUp from './components/QuentityPopUp';
-// import Updateaddproduct from './DashBoard/Updateproduct';
 import Updateproduct from './DashBoard/Updateproduct';
+import Addorderforuser from './DashBoard/Addorderforuser';
 
 
 function App() {
-
-  // useEffect(() => {
-  //   const response = Signin("mahela@icptechno.com", "#Mahela123");
-
-  // }, [])
 
   return (
     <>
@@ -39,14 +33,14 @@ function App() {
             <Route exact path='products' element={<><Products /></>} />
             <Route exact path='coustomers' element={<><Coustomers /></>} />
             <Route exact path='addproduct' element={<><Addproduct /></>} />
-            {/* <Route exact path='addUser' element={<><AddUser /></>} /> */}
             <Route exact path='orders' element={<><Orders /></>} />
             <Route exact path='transaction' element={<><Transaction /></>} />
             <Route exact path='menu' element={<><Menu /></>} />
             <Route exact path='updatecoustomer/:id' element={<><UpdateCoustomer/></>} />
             <Route exact path='ratinglist' element={<><Ratinglist/></>}/>
             <Route exact path='addusernew' element={<><AdduserNew/></>}/>
-            <Route exact path='updateproduct/:id' element={<><Updateproduct/></>}/>
+            <Route exact path='updateproduct/:id' element={<><Updateproduct/></>}/> 
+            <Route exact path='addorderforuser/:id' element={<><Addorderforuser/></>}/>
           
 
             <Route exact path='login' element={<><Login /></>} />
@@ -54,8 +48,6 @@ function App() {
             <Route exact path='cart' element={<><Navbar /><Cart /></>} />
             <Route exact path='history' element={<><Navbar /><History /></>} />
             <Route exact path='userprofile' element={<><Navbar /><UserProfile /></>} />
-            {/* <Route exact path='order/:id' element={<><Order /></>} /> */}
-            {/* <Route exact path='ordernew' element={<><OrderNew /></>} /> */}
             <Route exact path='quentity/:id' element={<><Quentity/></>} />
             <Route exact path='ratingpage' element={<><RatingPage/></>} />
             <Route exact path='payment' element={<><Payment/></>} />

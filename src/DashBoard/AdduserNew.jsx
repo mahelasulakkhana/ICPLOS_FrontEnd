@@ -4,23 +4,9 @@ import { useState } from 'react';
 import axios from 'axios';
 
 
-
 export default function AdduserNew() {
 
-
     const [selectedId, setSelectedId] = useState('');
-
-    // const handleRadioChange = (e) => {
-    //     setSelectedId(e.target.value);
-    // };
-    // const setAdminIdToRoleId = () => {
-    //     setData({ ...data, roleId: adminId });
-    //   };
-
-    //   // Function to set roleId to userId
-    //   const setUserIdToRoleId = () => {
-    //     setData({ ...data, roleId: userId });
-    //   };
 
     const adminId = "14C3CB13-4AB9-49FC-B279-4C7FF3A2707B";
     const userId = "B332055B-31B0-4701-B328-80D1EAE8D588";
@@ -29,7 +15,6 @@ export default function AdduserNew() {
     //     const checkedId = e.target.value;
     //     setData({ ...data, roleId: checkedId });
     //   };
-
 
     const [data, setData] = useState({
         name: "",
@@ -113,11 +98,8 @@ export default function AdduserNew() {
                             <span className="text-sm text-black">User</span>
                         </label>
                     </div>
-
                     <button type="submit" className=" mt-[10px] text-black bg-gray hover:bg-green-500 focus:ring-4 border-green-700 focus:ring-green-300 font-medium rounded-lg text-sm w-[400px] sm:w-auto px-5 py-2.5 text-center dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">Add User</button>
                 </form>
-
-
             </div>
         </div>
 
