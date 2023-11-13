@@ -10,12 +10,18 @@ import { useState } from 'react';
 import { useEffect } from 'react';
 import axios from 'axios';
 import config from "../config.json";
+import {
+	HiChevronLeft,
+  HiChevronRight
+} from 'react-icons/hi'
 
 const TABLE_HEAD = ["Product Name", "Quentity", "Price", "Order Data", "Customer Name", "Delete"];
 
 export default function Orders() {
 
   const [orders, setOrder] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const pageSize = 5; // Define the number of items per page
 
   useEffect(() => {
     const fetchOrder = async () => {
@@ -25,6 +31,31 @@ export default function Orders() {
     fetchOrder();
   }, []);
 
+
+  console.log(orders);
+
+  // Logic to display items for the current page
+  const indexOfLastOrder = currentPage * pageSize;
+  const indexOfFirstOrder = indexOfLastOrder - pageSize;
+  const currentOrders = orders.slice(indexOfFirstOrder, indexOfLastOrder);
+
+  const handlePageChange = (pageNumber) => {
+    setCurrentPage(pageNumber);
+  };
+
+  // Function to navigate to the previous page
+  const goToPreviousPage = () => {
+    if (currentPage > 1) {
+      setCurrentPage(currentPage - 1);
+    }
+  };
+
+  // Function to navigate to the next page
+  const goToNextPage = () => {
+    if (currentPage < Math.ceil(orders.length / pageSize)) {
+      setCurrentPage(currentPage + 1);
+    }
+  };
   // handleRemove = orders => {
   //   const url = `https://localhost:7184/api/Order/${orders.id}`; //
 
@@ -42,7 +73,7 @@ export default function Orders() {
   //     });
   // };
 
-  const productName = orders[0]?.orderProducts[0]?.product?.name;
+  // const productName = orders[0]?.orderProducts[0]?.product?.name;
   // console.log(productName);
   // console.log(orders.orderProducts[0].product.name);
 
@@ -73,7 +104,7 @@ export default function Orders() {
                 </tr>
               </thead>
               <tbody>
-                {orders.map((order) => {
+                {currentOrders.map((order) => {
                   return (
                     <tr key={order.id}>
                       <td className="p-4 border-b border-blue-gray-50">
@@ -106,7 +137,7 @@ export default function Orders() {
                             variant="small"
                             className="font-normal"
                           >
-                            {order.orderProducts[0]?.currentPrice}
+                            {order.orderProducts[0]?.product.price}
                           </Typography>
                         </div>
                       </td>
@@ -127,12 +158,12 @@ export default function Orders() {
                             variant="small"
                             className="font-normal"
                           >
-                            {order.user}
+                            {order.user.name}
                           </Typography>
                         </div>
                       </td>
                       <td className="p-4 border-b border-blue-gray-50">
-                        <Tooltip content="Delete User">
+                        <Tooltip content="Delete Order">
                           <button type="button" className="text-red-700 hover:text-white border border-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-red-500 dark:text-red-500 dark:hover:text-white dark:hover:bg-red-600 dark:focus:ring-red-900">Delete</button>
                         </Tooltip>
                       </td>
@@ -140,6 +171,23 @@ export default function Orders() {
                   );
                 })}
               </tbody>
+            
+              <div className='p-2 ml-[30px]'>
+
+                <button className='p-[7px] mr-[10px] border-black border-2 rounded-lg' onClick={goToPreviousPage}>
+                  <HiChevronLeft />
+                </button>
+
+                {Array.from({ length: Math.ceil(orders.length / pageSize) }, (_, i) => (
+                  <button key={i} onClick={() => handlePageChange(i + 1)}>
+                    {i + 1}
+                  </button>
+                ))}
+
+                <button className='p-[7px] ml-[10px] border-black border-2 rounded-lg' onClick={goToNextPage}>
+                  <HiChevronRight />
+                </button>
+              </div>
             </table>
           </CardBody>
         </Card>

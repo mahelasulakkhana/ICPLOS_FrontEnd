@@ -20,6 +20,7 @@ import AdduserNew from './DashBoard/AdduserNew';
 import QuentityPopUp from './components/QuentityPopUp';
 import Updateproduct from './DashBoard/Updateproduct';
 import Addorderforuser from './DashBoard/Addorderforuser';
+import Paymenthistry from './DashBoard/Paymenthistry';
 
 
 function App() {
@@ -41,6 +42,8 @@ function App() {
             <Route exact path='addusernew' element={<><AdduserNew/></>}/>
             <Route exact path='updateproduct/:id' element={<><Updateproduct/></>}/> 
             <Route exact path='addorderforuser/:id' element={<><Addorderforuser/></>}/>
+            <Route exact path='transaction/paymenthistry/:id' element={<><Paymenthistry/></>}/>
+           
           
 
             <Route exact path='login' element={<><Login /></>} />

@@ -37,22 +37,10 @@ export const DASHBOARD_SIDEBAR_LINKS = [
 	},
 	{
 		key: 'transactions',
-		label: 'User Payment History',
+		label: 'Payment History',
 		path: '/transaction',
 		icon: <HiOutlineDocumentText />
 	},
-	// {
-	// 	key: 'addcoustomer',
-	// 	label: 'Addcoustomer',
-	// 	path: '/addUser',
-	// 	icon: <HiOutlineUsers/>
-	// },
-	// {
-	// 	key: 'addproduct',
-	// 	label: 'Addproduct',
-	// 	path: '/addproduct',
-	// 	icon: <HiOutlineAnnotation />
-	// },
 	{
 		key: 'ratinglist',
 		label: 'Ratinglist',
