@@ -13,35 +13,40 @@ export default function () {
 
     const { control, handleSubmit, formState: { errors } } = useForm();
 
- 
-        const storedData = localStorage.getItem("logUser");
 
-        // Parse the stored data
-        const parsedData = JSON.parse(storedData);
+    const storedData = localStorage.getItem("logUser");
 
-        // Get the access token from the parsed data
-        const accessToken = parsedData?.accessToken;
+    const userRoleClaim = "http://schemas.microsoft.com/ws/2008/06/identity/claims/role"
+    const userNameClaim = "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name"
 
-        const token = accessToken;
+    // Parse the stored data
+    const parsedData = JSON.parse(storedData);
 
-        // console.log(token);
+    // Get the access token from the parsed data
+    const accessToken = parsedData?.accessToken;
 
-        const decodedToken = atob(token.split('.')[1]);
-        console.log(JSON.parse(decodedToken));
+    const token = accessToken;
 
+    const decodedToken = atob(token.split('.')[1]);
 
-        if (decodedToken["http://schemas.microsoft.com/ws/2008/06/identity/claims/role"] === "Admin") {
+    var userRole = JSON.parse(decodedToken)[userRoleClaim]
+    // var userName = JSON.parse(decodedToken)[userNameClaim]
+    console.log(userRole);
+    // console.log(userName);
 
+    if (userRole !== null) {
+        if (userRole === "Admin") {
             console.log("User is an admin");
-            navigate("/menu")
-
-            // http://schemas.microsoft.com/ws/2008/06/identity/claims/role
+            // Redirect or perform actions for an admin
+            navigate("/products");
         } else {
-            // if(decodedToken["http://schemas.microsoft.com/ws/2008/06/identity/claims/role"] === "User")
             console.log("User is not an admin");
-            navigate("/")
+            // Redirect or perform actions for non-admin users
+            navigate("/");
         }
-
+    } else {
+        console.log("Role claim not found or invalid token");
+    }
 
 
     const onSubmit = (data) => {
@@ -66,7 +71,6 @@ export default function () {
             .catch((error) => {
                 console.log(error);
             });
-
     };
 
     return (
@@ -95,7 +99,6 @@ export default function () {
                                 placeholder={"User Name"}
                                 fieldRef={field}
                                 hassError={errors.email?.message}
-
                             />
                         )}
                     />
@@ -111,11 +114,9 @@ export default function () {
                                 placeholder={"Password"}
                                 fieldRef={field}
                                 hassError={errors.password?.message}
-
                             />
                         )}
                     />
-
                     <button type='login' className='w-full px-6 py-3 bg-grren-500 text-white font-medium uppercase rounded shadow-md hover:bg-green-300 hover:shadow-lg foucus:bg-green-300 focus:outline-none focus:ring-0 active:bg-green-500'>
                         Login
                     </button>

@@ -40,7 +40,7 @@ const UserProfile = (props) => {
         </label>
         <label className='relative cursor-pointer  '>
           <div className='mb-2 h-12 w-[450px] px-6 text-l text-black  border-black border-2 rounded-lg border-opacity-100 outline-none '>
-            <span className='text-l text-black text-opacity-80  absolute left-5 top-3 px-1 duration-200 '>Number :{user?.phoneNumber}</span>
+            <span className='text-l text-black text-opacity-80  absolute left-5 top-3 px-1 duration-200 '>Number:{user?.phoneNumber}</span>
           </div>
         </label>
 
